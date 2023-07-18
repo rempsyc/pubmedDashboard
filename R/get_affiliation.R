@@ -1,8 +1,11 @@
 #' @export
 get_affiliation <- function(address, info = "university") {
+  if (!info %in% c("university", "department")) {
+    stop("Argument 'info' must be one of: university, department")
+  }
+  address <- gsub(".", ",", address, fixed = TRUE)
+  addr.split <- stringr::str_split(address, ",")
   if (info == "university") {
-    address <- gsub(".", ",", address, fixed = TRUE)
-    addr.split <- stringr::str_split(address, ",")
     string.uni <- "University"
     uni <- split_address(addr.split, string.uni)
     string.uni2 <- "University|Université|Universite|Universitat|Universität|Universiteit|College|School|Institute|Institut|Center|Centre|CEMIC, CONICET|CNRS|INSEAD"
