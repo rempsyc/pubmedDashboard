@@ -1,0 +1,45 @@
+Package: pubmedDashboard
+Title: Creating PubMed Data Visualization Dashboards
+Version: 0.0.1
+Authors@R: 
+    person("Rémi", "Thériault", , "remi.theriault@mail.mcgill.ca", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-4315-6788"))
+Description: Package to facilitate the creation of data visualization dashboards 
+       through the flexdashboard and easyPubMed packages.
+License: MIT + file LICENSE
+Suggests: 
+    testthat (>= 3.0.0)
+Imports: 
+    extrafont, 
+    easyPubMed, 
+    dplyr, 
+    purrr, 
+    stringr, 
+    stringi, 
+    DT,
+    fuzzyjoin, 
+    countrycode, 
+    Ecfun, 
+    tidyr, 
+    waffle, 
+    plotly, 
+    ggplot2, 
+    knitr, 
+    lubridate,
+    xts, 
+    tibble, 
+    dygraphs, 
+    rempsyc, 
+    RColorBrewer,
+    insight,
+    flexdashboard,
+    plyr,
+    ggflags,
+    maps
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 2.10)
+LazyData: true
