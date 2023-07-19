@@ -71,8 +71,8 @@ save_process_pubmed_batch(
 
 ## Neglected 95% Dashboard
 
-[![](https://rempsyc.github.io/pubmedDashboard/images/figures/n95.png)](https://remi-theriault.com/dashboards/neglected_95)
+[![](https://rempsyc.github.io/pubmedDashboard/images/n95.png)](https://remi-theriault.com/dashboards/neglected_95)
 
 ## Passion Dashboard
 
-[![](https://rempsyc.github.io/pubmedDashboard/images/figures/passion.png)](https://remi-theriault.com/dashboards/passion)
+[![](https://rempsyc.github.io/pubmedDashboard/images/passion.png)](https://remi-theriault.com/dashboards/passion)
