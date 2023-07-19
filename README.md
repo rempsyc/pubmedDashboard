@@ -35,7 +35,7 @@ library(pubmedDashboard)
 address <- c("Department of Psychology, Cornell University, Ithaca, New York 14853-7601.",
              "Dipartimento di Psicologia Generale, Università di Padova, Italy.",
              "Universität Mannheim, Federal Republic of Germany.",
-             "Département de psychologie, Université du Québec à Montréal.")
+             "Département de psychologie, Université du Québec à Montréal, Canada.")
 
 get_affiliation(address, "department")
 #> [1] "Department of Psychology"            "Dipartimento di Psicologia Generale"
@@ -46,7 +46,7 @@ get_affiliation(address, "university")
 #> [3] "Universität Mannheim"            "Université du Québec à Montréal"
 
 get_country(address)
-#> [1] "United States" "Italy"         "Germany"       NA
+#> [1] "United States" "Italy"         "Germany"       "Canada"
 ```
 
 ## Mega Function
