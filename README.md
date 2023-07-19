@@ -46,8 +46,6 @@ get_affiliation(address, "university")
 #> [3] "Universität Mannheim"            "Université du Québec à Montréal"
 
 get_country(address)
-#> Warning: Some values were not matched unambiguously: Department of Psychology, Cornell University, Ithaca, New York 14853-7601.
-#> Warning: Some values were not matched unambiguously: Département de psychologie, Université du Québec à Montréal.
 #> [1] "United States" "Italy"         "Germany"       NA
 ```
 
@@ -81,20 +79,8 @@ save_process_pubmed_batch(
 
 ## Neglected 95% Dashboard
 
-<figure>
-<img src="man/figures/n95.png"
-alt="https://remi-theriault.com/dashboards/neglected_95" />
-<figcaption aria-hidden="true"><a
-href="https://remi-theriault.com/dashboards/neglected_95"
-class="uri">https://remi-theriault.com/dashboards/neglected_95</a></figcaption>
-</figure>
+[![](https://rempsyc.github.io/pubmedDashboard/images/figures/n95.png)](https://remi-theriault.com/dashboards/neglected_95)
 
 ## Passion Dashboard
 
-<figure>
-<img src="man/figures/passion.png"
-alt="https://remi-theriault.com/dashboards/passion" />
-<figcaption aria-hidden="true"><a
-href="https://remi-theriault.com/dashboards/passion"
-class="uri">https://remi-theriault.com/dashboards/passion</a></figcaption>
-</figure>
+[![](https://rempsyc.github.io/pubmedDashboard/images/figures/passion.png)](https://remi-theriault.com/dashboards/passion)

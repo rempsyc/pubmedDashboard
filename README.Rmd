@@ -35,7 +35,7 @@ remotes::install_github("rempsyc/pubmedDashboard")
 
 `pubmedDashboard` helps parse the address to identify department and university of affiliation, as well as country.
 
-```{r}
+```{r, warning=FALSE}
 library(pubmedDashboard)
 
 address <- c("Department of Psychology, Cornell University, Ithaca, New York 14853-7601.",
@@ -71,8 +71,8 @@ save_process_pubmed_batch(
 
 ## Neglected 95% Dashboard
 
-![https://remi-theriault.com/dashboards/neglected_95](man/figures/n95.png)
+[![](https://rempsyc.github.io/pubmedDashboard/images/figures/n95.png)](https://remi-theriault.com/dashboards/neglected_95)
 
 ## Passion Dashboard
 
-![https://remi-theriault.com/dashboards/passion](man/figures/passion.png)
+[![](https://rempsyc.github.io/pubmedDashboard/images/figures/passion.png)](https://remi-theriault.com/dashboards/passion)
