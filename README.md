@@ -17,14 +17,14 @@ packages.
 
 ## Installation
 
-You can install the development version of pubmedDashboard like so:
+You can install the development version of `pubmedDashboard` like so:
 
 ``` r
 # If `remotes` isn't installed, use `install.packages("remotes")`
 remotes::install_github("rempsyc/pubmedDashboard")
 ```
 
-# Basic Examples
+## Basic Examples
 
 `pubmedDashboard` helps parse the address to identify department and
 university of affiliation, as well as country.
@@ -49,7 +49,7 @@ get_country(address)
 #> [1] "United States" "Italy"         "Germany"       NA
 ```
 
-# Mega Function
+## Mega Function
 
 One simple function allows to download the paper data from PubMed,
 convert the XLM data to a dataframe, extract affiliations, match
@@ -59,7 +59,7 @@ the file to disk for later reuse.
 ``` r
 pubmed_query_string <- paste(
   "passion [Title/Abstract]",
-  "OR Dualistic Model of Passion [Text Word]")
+  "AND Dualistic Model of Passion [Text Word]")
 
 save_process_pubmed_batch(
   pubmed_query_string,
@@ -75,12 +75,12 @@ save_process_pubmed_batch(
 #> File saved in data/articles_2023_2030.rds
 ```
 
-# Example Dashboards
+## Example Dashboards
 
-## Neglected 95% Dashboard
+### Neglected 95% Dashboard
 
-[![](https://rempsyc.github.io/pubmedDashboard/images/figures/n95.png)](https://remi-theriault.com/dashboards/neglected_95)
+[![](man/figures/n95.png)](https://remi-theriault.com/dashboards/neglected_95)
 
-## Passion Dashboard
+### Passion Dashboard
 
-[![](https://rempsyc.github.io/pubmedDashboard/images/figures/passion.png)](https://remi-theriault.com/dashboards/passion)
+[![](man/figures/passion.png)](https://remi-theriault.com/dashboards/passion)
