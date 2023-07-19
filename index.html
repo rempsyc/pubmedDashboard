@@ -68,15 +68,14 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of pubmedDashboard like so:</p>
+<p>You can install the development version of <code>pubmedDashboard</code> like so:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># If `remotes` isn't installed, use `install.packages("remotes")`</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rempsyc/pubmedDashboard"</span><span class="op">)</span></span></code></pre></div>
 </div>
-</div>
-<div class="section level1">
-<h1 id="basic-examples">Basic Examples<a class="anchor" aria-label="anchor" href="#basic-examples"></a>
-</h1>
+<div class="section level2">
+<h2 id="basic-examples">Basic Examples<a class="anchor" aria-label="anchor" href="#basic-examples"></a>
+</h2>
 <p><code>pubmedDashboard</code> helps parse the address to identify department and university of affiliation, as well as country.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rempsyc/pubmedDashboard" class="external-link">pubmedDashboard</a></span><span class="op">)</span></span>
@@ -97,14 +96,14 @@
 <span><span class="fu">get_country</span><span class="op">(</span><span class="va">address</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "United States" "Italy"         "Germany"       NA</span></span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="mega-function">Mega Function<a class="anchor" aria-label="anchor" href="#mega-function"></a>
-</h1>
+<div class="section level2">
+<h2 id="mega-function">Mega Function<a class="anchor" aria-label="anchor" href="#mega-function"></a>
+</h2>
 <p>One simple function allows to download the paper data from PubMed, convert the XLM data to a dataframe, extract affiliations, match universities to countries, identify countries and continents, and save the file to disk for later reuse.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pubmed_query_string</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span></span>
 <span>  <span class="st">"passion [Title/Abstract]"</span>,</span>
-<span>  <span class="st">"OR Dualistic Model of Passion [Text Word]"</span><span class="op">)</span></span>
+<span>  <span class="st">"AND Dualistic Model of Passion [Text Word]"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">save_process_pubmed_batch</span><span class="op">(</span></span>
 <span>  <span class="va">pubmed_query_string</span>,</span>
@@ -119,21 +118,21 @@
 <span><span class="co">#&gt; Operation sucessfully completed. Congratulations! </span></span>
 <span><span class="co">#&gt; File saved in data/articles_2023_2030.rds</span></span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="example-dashboards">Example Dashboards<a class="anchor" aria-label="anchor" href="#example-dashboards"></a>
-</h1>
 <div class="section level2">
-<h2 id="neglected-95-dashboard">Neglected 95% Dashboard<a class="anchor" aria-label="anchor" href="#neglected-95-dashboard"></a>
+<h2 id="example-dashboards">Example Dashboards<a class="anchor" aria-label="anchor" href="#example-dashboards"></a>
 </h2>
-<p><a href="https://remi-theriault.com/dashboards/neglected_95" class="external-link"><img src="https://rempsyc.github.io/pubmedDashboard/images/figures/n95.png"></a></p>
+<div class="section level3">
+<h3 id="neglected-95-dashboard">Neglected 95% Dashboard<a class="anchor" aria-label="anchor" href="#neglected-95-dashboard"></a>
+</h3>
+<p><a href="https://remi-theriault.com/dashboards/neglected_95" class="external-link"><img src="reference/figures/n95.png"></a></p>
 </div>
-<div class="section level2">
-<h2 id="passion-dashboard">Passion Dashboard<a class="anchor" aria-label="anchor" href="#passion-dashboard"></a>
-</h2>
-<p><a href="https://remi-theriault.com/dashboards/passion" class="external-link"><img src="https://rempsyc.github.io/pubmedDashboard/images/figures/passion.png"></a></p>
+<div class="section level3">
+<h3 id="passion-dashboard">Passion Dashboard<a class="anchor" aria-label="anchor" href="#passion-dashboard"></a>
+</h3>
+<p><a href="https://remi-theriault.com/dashboards/passion" class="external-link"><img src="reference/figures/passion.png"></a></p>
 </div>
 </div>
-
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
