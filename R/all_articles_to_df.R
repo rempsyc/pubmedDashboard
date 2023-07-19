@@ -5,5 +5,6 @@ all_articles_to_df <- function(d.fls){
     list.articles.df <- lapply(list.articles, article_to_df2)
     articles.df <- do.call(rbind, list.articles.df)
   })
-  do.call(rbind, y)
+  z <- do.call(rbind, y)
+  filter(z, !duplicated(pmid))
 }

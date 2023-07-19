@@ -8,11 +8,16 @@ get_affiliation <- function(address, info = "university") {
   if (info == "university") {
     string.uni <- "University"
     uni <- split_address(addr.split, string.uni)
-    string.uni2 <- "University|Université|Universite|Universitat|Universität|Universiteit|College|School|Institute|Institut|Center|Centre|CEMIC, CONICET|CNRS|INSEAD"
+    string.uni2 <- paste(
+      "University|Université|Universite|Universitat|Universität|Universiteit",
+      "Università|College|School|Institute|Institut|Center|Centre",
+      "CEMIC, CONICET|CNRS|INSEAD", sep = "|")
     uni2 <- split_address(addr.split, string.uni2)
     out <- ifelse(!is.na(uni), uni, uni2)
   } else if (info == "department") {
-    string.dep <- "Department|Departamento|Departament|Departement|Faculty|Center|School|Unit|Institute|Institut|Centre|Division|Unidad"
+    string.dep <- paste(
+      "Department|Departamento|Dipartimento|Departament|Departement|Faculty",
+      "Center|School|Unit|Institute|Institut|Centre|Division|Unidad", sep = "|")
     out <- split_address(addr.split, string.dep)
   }
   out
