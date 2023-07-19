@@ -24,6 +24,7 @@ save_process_pubmed_batch <- function(pubmed_query_string,
   if (verbose) {
     cat("2/5 - Converting XLM files to dataframe...\n")
   }
+
   # Convert XLM data to a data frame of first authors
   # articles.df <- table_articles_byAuth(d.fls, included_authors = "first")
   articles.df <- all_articles_to_df(d.fls)

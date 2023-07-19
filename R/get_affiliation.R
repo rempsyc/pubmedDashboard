@@ -16,8 +16,9 @@ get_affiliation <- function(address, info = "university") {
     out <- ifelse(!is.na(uni), uni, uni2)
   } else if (info == "department") {
     string.dep <- paste(
-      "Department|Departamento|Dipartimento|Departament|Departement|Faculty",
-      "Center|School|Unit|Institute|Institut|Centre|Division|Unidad", sep = "|")
+      "Department|Departamento|Dipartimento|Departament|Departement",
+      "Département|Faculty|Center|School|Unit|Institute|Institut|Centre",
+      "Division|Unidad", sep = "|")
     out <- split_address(addr.split, string.dep)
   }
   out

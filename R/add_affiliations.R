@@ -1,3 +1,4 @@
+#' @importFrom dplyr %>%
 #' @export
 add_affiliation <- function(data) {
   data <- data %>%

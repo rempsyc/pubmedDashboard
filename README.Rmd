@@ -20,37 +20,59 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/pubmedDashboard)](https://CRAN.R-project.org/package=pubmedDashboard)
 <!-- badges: end -->
 
-The goal of pubmedDashboard is to ...
+The goal of `pubmedDashboard` is to facilitate the creation of pretty data visualization dashboards using the `flexdashboard` and `easyPubMed` packages.
 
 ## Installation
 
 You can install the development version of pubmedDashboard like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# If `remotes` isn't installed, use `install.packages("remotes")`
+remotes::install_github("rempsyc/pubmedDashboard")
 ```
 
-## Example
+# Basic Examples
 
-This is a basic example which shows you how to solve a common problem:
+`pubmedDashboard` helps parse the address to identify department and university of affiliation, as well as country.
 
-```{r example}
+```{r}
 library(pubmedDashboard)
-## basic example code
+
+address <- c("Department of Psychology, Cornell University, Ithaca, New York 14853-7601.",
+             "Dipartimento di Psicologia Generale, Università di Padova, Italy.",
+             "Universität Mannheim, Federal Republic of Germany.",
+             "Département de psychologie, Université du Québec à Montréal.")
+
+get_affiliation(address, "department")
+
+get_affiliation(address, "university")
+
+get_country(address)
+
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+# Mega Function
 
-```{r cars}
-summary(cars)
+One simple function allows to download the paper data from PubMed, convert the XLM data to a dataframe, extract affiliations, match universities to countries, identify countries and continents, and save the file to disk for later reuse.
+
+```{r example, warning=FALSE}
+pubmed_query_string <- paste(
+  "passion [Title/Abstract]",
+  "OR Dualistic Model of Passion [Text Word]")
+
+save_process_pubmed_batch(
+  pubmed_query_string,
+  year_low = 2023,
+  year_high = 2030)
+
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
+# Example Dashboards
 
-You can also embed plots, for example:
+## Neglected 95% Dashboard
 
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
+![https://remi-theriault.com/dashboards/neglected_95](man/figures/n95.png)
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+## Passion Dashboard
+
+![https://remi-theriault.com/dashboards/passion](man/figures/passion.png)

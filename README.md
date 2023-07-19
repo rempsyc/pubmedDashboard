@@ -11,48 +11,90 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://www.r-pkg.org/badges/version/pubmedDashboard)](https://CRAN.R-project.org/package=pubmedDashboard)
 <!-- badges: end -->
 
-The goal of pubmedDashboard is to …
+The goal of `pubmedDashboard` is to facilitate the creation of pretty
+data visualization dashboards using the `flexdashboard` and `easyPubMed`
+packages.
 
 ## Installation
 
 You can install the development version of pubmedDashboard like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# If `remotes` isn't installed, use `install.packages("remotes")`
+remotes::install_github("rempsyc/pubmedDashboard")
 ```
 
-## Example
+# Basic Examples
 
-This is a basic example which shows you how to solve a common problem:
+`pubmedDashboard` helps parse the address to identify department and
+university of affiliation, as well as country.
 
 ``` r
 library(pubmedDashboard)
-## basic example code
+
+address <- c("Department of Psychology, Cornell University, Ithaca, New York 14853-7601.",
+             "Dipartimento di Psicologia Generale, Università di Padova, Italy.",
+             "Universität Mannheim, Federal Republic of Germany.",
+             "Département de psychologie, Université du Québec à Montréal.")
+
+get_affiliation(address, "department")
+#> [1] "Department of Psychology"            "Dipartimento di Psicologia Generale"
+#> [3] NA                                    "Département de psychologie"
+
+get_affiliation(address, "university")
+#> [1] "Cornell University"              "Università di Padova"           
+#> [3] "Universität Mannheim"            "Université du Québec à Montréal"
+
+get_country(address)
+#> Warning: Some values were not matched unambiguously: Department of Psychology, Cornell University, Ithaca, New York 14853-7601.
+#> Warning: Some values were not matched unambiguously: Département de psychologie, Université du Québec à Montréal.
+#> [1] "United States" "Italy"         "Germany"       NA
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+# Mega Function
+
+One simple function allows to download the paper data from PubMed,
+convert the XLM data to a dataframe, extract affiliations, match
+universities to countries, identify countries and continents, and save
+the file to disk for later reuse.
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+pubmed_query_string <- paste(
+  "passion [Title/Abstract]",
+  "OR Dualistic Model of Passion [Text Word]")
+
+save_process_pubmed_batch(
+  pubmed_query_string,
+  year_low = 2023,
+  year_high = 2030)
+#> 1/5 - Downloading PubMed data...
+#> [1] "PubMed data batch 1 / 1 downloaded..."
+#> 2/5 - Converting XLM files to dataframe...
+#> 3/5 - Extracting affiliations...
+#> 4/5 - Matching universities to countries...
+#> 5/5 - Identifying countries and continents...
+#> Operation sucessfully completed. Congratulations! 
+#> File saved in data/articles_2023_2030.rds
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+# Example Dashboards
 
-You can also embed plots, for example:
+## Neglected 95% Dashboard
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+<figure>
+<img src="man/figures/n95.png"
+alt="https://remi-theriault.com/dashboards/neglected_95" />
+<figcaption aria-hidden="true"><a
+href="https://remi-theriault.com/dashboards/neglected_95"
+class="uri">https://remi-theriault.com/dashboards/neglected_95</a></figcaption>
+</figure>
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+## Passion Dashboard
+
+<figure>
+<img src="man/figures/passion.png"
+alt="https://remi-theriault.com/dashboards/passion" />
+<figcaption aria-hidden="true"><a
+href="https://remi-theriault.com/dashboards/passion"
+class="uri">https://remi-theriault.com/dashboards/passion</a></figcaption>
+</figure>

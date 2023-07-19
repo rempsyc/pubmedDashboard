@@ -1,3 +1,4 @@
+#' @importFrom dplyr %>%
 #' @export
 match_university <- function(data) {
   data <- data %>%

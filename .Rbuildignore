@@ -8,3 +8,5 @@
 ^docs$
 ^pkgdown$
 ^\.github$
+TODOS.md
+easyPubMed_data_01.txt
