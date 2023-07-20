@@ -1,3 +1,6 @@
+#' @title Like Excel vlookup/grep, both both ways
+#' @param pattern The pattern to compare.
+#' @param lookup_vector The dictionnary in which to look for the pattern.
 #' @export
 partial_vlookup <- function(pattern, lookup_vector) {
   out <- purrr::map_chr(pattern, \(x) {

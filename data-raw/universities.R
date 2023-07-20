@@ -3,20 +3,28 @@
 # Download university + country data
 universities <- read.csv(
   "https://raw.githubusercontent.com/endSly/world-universities-csv/master/world-universities.csv",
-  header = FALSE)
+  header = FALSE
+)
 names(universities) <- c("country_code", "university", "website")
 universities <- universities[1:2]
 
 universities <- universities %>%
   dplyr::mutate(
-    country_code = replace(country_code,
-                           university == "University of the Netherlands Antilles, Curacao", "CW"),
-    country_code = replace(country_code,
-                           university == "University of Sint Eustatius School of Medicine", "SX"),
-    country_code = replace(country_code,
-                           university == "St.James's School of Medicine, Bonaire" |
-                             university == "American University of the Caribbean, Sint Maarten" |
-                             university == "International University School of Medicine (IUSOM)", "BQ"))
+    country_code = replace(
+      country_code,
+      university == "University of the Netherlands Antilles, Curacao", "CW"
+    ),
+    country_code = replace(
+      country_code,
+      university == "University of Sint Eustatius School of Medicine", "SX"
+    ),
+    country_code = replace(
+      country_code,
+      university == "St.James's School of Medicine, Bonaire" |
+        university == "American University of the Caribbean, Sint Maarten" |
+        university == "International University School of Medicine (IUSOM)", "BQ"
+    )
+  )
 
 # Correct/add a few university countries manually
 universities2 <- tibble::tribble(
@@ -25,8 +33,8 @@ universities2 <- tibble::tribble(
   "AU", "Institute for Positive Psychology and Education",
   "AU", "Melbourne School of Psychological Sciences",
   "AT", "University of Vienna",
-  "BE", "University of Liege"
-  ,"BR", "Institute D'Or for Research and Teaching",
+  "BE", "University of Liege",
+  "BR", "Institute D'Or for Research and Teaching",
   "CA", "Montreal Behavioural Medicine Centre (MBMC)",
   "CA", "University of Quebec",
   "CA", "University of Montreal",
@@ -78,9 +86,12 @@ universities2 <- tibble::tribble(
   "US", "University of Wisconsin-Madison",
   "US", "Stony Brook University",
   "VN", "SWPS University of Social Sciences and Humanities"
-  )
+)
 
 universities <- dplyr::bind_rows(universities, universities2)
 
-usethis::use_data(universities, overwrite = TRUE)
+universities$university <- gsub('"', "", universities$university)
 
+universities$university <- stringi::stri_escape_unicode(universities$university)
+
+usethis::use_data(universities, overwrite = TRUE)

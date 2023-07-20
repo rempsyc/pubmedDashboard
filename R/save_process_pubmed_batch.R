@@ -1,3 +1,11 @@
+#' @title Mega function to process and save PubMed data
+#' @param pubmed_query_string The PubMed query string.
+#' @param year_low The year the data should start.
+#' @param year_high The year the data should end.
+#' @param data_folder Where to save the data.
+#' @param batch_size The download batch size.
+#' @param api_key The api key for faster processing (optional).
+#' @param verbose Whether to include progress messages.
 #' @export
 save_process_pubmed_batch <- function(pubmed_query_string,
                                       year_low,
@@ -6,7 +14,6 @@ save_process_pubmed_batch <- function(pubmed_query_string,
                                       batch_size = 5000,
                                       api_key = NULL,
                                       verbose = TRUE) {
-
   if (verbose) {
     cat("1/5 - Downloading PubMed data...\n")
   }
@@ -15,8 +22,11 @@ save_process_pubmed_batch <- function(pubmed_query_string,
   d.fls <- batch_pubmed_download2(
     pubmed_query_string = paste(
       pubmed_query_string,
-      paste0("AND ('", year_low, "/01/01'[Date - Publication] : '",
-             year_high, "/12/31'[Date - Publication])")),
+      paste0(
+        "AND ('", year_low, "/01/01'[Date - Publication] : '",
+        year_high, "/12/31'[Date - Publication])"
+      )
+    ),
     year_low = year_low,
     year_high = year_high
   )
@@ -56,7 +66,9 @@ save_process_pubmed_batch <- function(pubmed_query_string,
   saveRDS(articles.df4, paste0(data_folder, "/articles_", year_low, "_", year_high, ".rds"))
 
   if (verbose) {
-    cat("Operation sucessfully completed. Congratulations!",
-        "\nFile saved in", paste0(data_folder, "/articles_", year_low, "_", year_high, ".rds"), "\n")
+    cat(
+      "Operation sucessfully completed. Congratulations!",
+      "\nFile saved in", paste0(data_folder, "/articles_", year_low, "_", year_high, ".rds"), "\n"
+    )
   }
 }

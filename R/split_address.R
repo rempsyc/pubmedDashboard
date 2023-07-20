@@ -1,8 +1,12 @@
+#' @title Split affiliation address into separate strings
+#' @param address The address to split.
+#' @param string The character used to split the address.
 #' @export
-split_address <- function(addr.split, string) {
-  ind1 <- purrr::map(addr.split, ~which(grepl(string, .x)))
-  ind1 <- purrr::imap(addr.split, \(x, idx) purrr::pluck(ind1[[idx]])[1])
-  ind1 <- purrr::imap(addr.split, \(x, idx) purrr::pluck(x, ind1[[idx]]))
-  ind1 <- trimws(as.character(ind1))
-  ind1 <- replace(ind1, ind1 == "NULL", NA)
+split_address <- function(address, string) {
+  ind <- purrr::map(address, ~ which(grepl(string, .x)))
+  ind <- purrr::imap(address, \(x, idx) purrr::pluck(ind[[idx]])[1])
+  ind <- purrr::imap(address, \(x, idx) purrr::pluck(x, ind[[idx]]))
+  ind <- trimws(as.character(ind))
+  ind <- replace(ind, ind == "NULL", NA)
+  ind
 }

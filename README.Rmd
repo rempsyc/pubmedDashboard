@@ -38,17 +38,18 @@ remotes::install_github("rempsyc/pubmedDashboard")
 ```{r, warning=FALSE}
 library(pubmedDashboard)
 
-address <- c("Department of Psychology, Cornell University, Ithaca, New York 14853-7601.",
-             "Dipartimento di Psicologia Generale, Università di Padova, Italy.",
-             "Universität Mannheim, Federal Republic of Germany.",
-             "Département de psychologie, Université du Québec à Montréal, Canada.")
+address <- c(
+  "Department of Psychology, Cornell University, Ithaca, New York 14853-7601.",
+  "Dipartimento di Psicologia Generale, Università di Padova, Italy.",
+  "Universität Mannheim, Federal Republic of Germany.",
+  "Département de psychologie, Université du Québec à Montréal, Canada."
+)
 
 get_affiliation(address, "department")
 
 get_affiliation(address, "university")
 
 get_country(address)
-
 ```
 
 ## Mega Function
@@ -58,13 +59,14 @@ One simple function allows to download the paper data from PubMed, convert the X
 ```{r example, warning=FALSE}
 pubmed_query_string <- paste(
   "passion [Title/Abstract]",
-  "AND Dualistic Model of Passion [Text Word]")
+  "AND Dualistic Model of Passion [Text Word]"
+)
 
 save_process_pubmed_batch(
   pubmed_query_string,
   year_low = 2023,
-  year_high = 2030)
-
+  year_high = 2030
+)
 ```
 
 ## Example Dashboards
