@@ -14,8 +14,9 @@ Convert a Hex string to regular text
 }
 \examples{
 address <- c(
-  "D&#xe9;partement de Psychologie, Universit&#xe9; du Qu&#xe9;bec &#xe0; Montr&#xe9;al, Montr&#xe9;al",
-  "Department of Behavioural and Cognitive Sciences, University of Luxembourg, Esch-sur-Alzette, Luxembourg.")
+  "D&#xe9;partement de Psychologie, Universit&#xe9; du Qu&#xe9;bec &#xe0; Montr&#xe9;al",
+  "Department of Behavioural and Cognitive Sciences, University of Luxembourg"
+)
 convert_hex_to_char(address)
 
 }

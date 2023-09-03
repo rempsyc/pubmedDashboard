@@ -1,2 +1,1 @@
-- Find a way to convert Hex characters to regular text
 - Add more functions (figures, tables, etc.)
