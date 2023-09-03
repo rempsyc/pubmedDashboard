@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_region.R
 \name{add_region}
 \alias{add_region}
-\title{Add regions}
+\title{Add regions to pubmedDashboard dataframe}
 \usage{
 add_region(data)
 }
@@ -10,7 +10,7 @@ add_region(data)
 \item{data}{The dataframe on which to add region.}
 }
 \description{
-Add regions
+Add regions to pubmedDashboard dataframe
 }
 \examples{
 \dontrun{
@@ -19,10 +19,10 @@ d.fls <- batch_pubmed_download2(
     "passion [Title/Abstract]",
     "AND Dualistic Model of Passion [Text Word]",
     "AND ('2023/01/01' [Date - Publication] : '2023/12/31' [Date - Publication])"
-   ),
-   year_low = 2023,
-   year_high = 2023
- )
+  ),
+  year_low = 2023,
+  year_high = 2023
+)
 articles.df <- all_articles_to_df(d.fls)
 articles.df2 <- add_affiliation(articles.df)
 articles.df3 <- match_university(articles.df2)

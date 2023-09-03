@@ -2,10 +2,12 @@
 #' @param splitted.address The address splitted with [stringr::str_split].
 #' @param string The keyword to determine which string component to keep.
 #' @examples
-#' address <- c("Department of Psychology",
-#'              " Cornell University",
-#'              " Ithaca",
-#'              " New York 14853-7601.")
+#' address <- c(
+#'   "Department of Psychology",
+#'   " Cornell University",
+#'   " Ithaca",
+#'   " New York 14853-7601."
+#' )
 #'
 #' extract_split_address(address, "University")
 #' extract_split_address(address, "Department")

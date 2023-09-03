@@ -19,9 +19,12 @@ address <- c(
   "Department of Psychology, Cornell University, Ithaca, New York 14853-7601.",
   "Dipartimento di Psicologia Generale, Università di Padova, Italy.",
   "Universität Mannheim, Federal Republic of Germany.",
-  "Département de psychologie, Université du Québec à Montréal, Canada.")
+  "Département de psychologie, Université du Québec à Montréal, Canada."
+)
 partial_vlookup(address, universities$university)
-uni <- c("Cornell University", "Università di Padova",
-         "Universität Mannheim", "Université du Québec à Montréal")
+uni <- c(
+  "Cornell University", "Università di Padova",
+  "Universität Mannheim", "Université du Québec à Montréal"
+)
 partial_vlookup(uni, universities$university)
 }

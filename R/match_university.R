@@ -9,10 +9,7 @@
 #'     "passion [Title/Abstract]",
 #'     "AND Dualistic Model of Passion [Text Word]",
 #'     "AND ('2023/01/01' [Date - Publication] : '2023/12/31' [Date - Publication])"
-#'    ),
-#'    year_low = 2023,
-#'    year_high = 2023
-#'  )
+#' ))
 #' articles.df <- all_articles_to_df(d.fls)
 #' articles.df2 <- add_affiliation(articles.df)
 #' articles.df3 <- match_university(articles.df2)
@@ -23,11 +20,15 @@ match_university <- function(data) {
   data <- data %>%
     dplyr::mutate(
       university_old = .data$university,
-      university = partial_vlookup(.data$university,
-                                   pubmedDashboard::universities$university),
+      university = partial_vlookup(
+        .data$university,
+        pubmedDashboard::universities$university
+      ),
       university = ifelse(is.na(.data$university), partial_vlookup(
-        .data$address, pubmedDashboard::universities$university),
-        .data$university),
+        .data$address, pubmedDashboard::universities$university
+      ),
+      .data$university
+      ),
       .after = "university"
     )
   data <- data %>%

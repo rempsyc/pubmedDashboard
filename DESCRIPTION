@@ -14,7 +14,8 @@ Imports:
     dplyr,
     rlang,
     purrr, 
-    stringr, 
+    stringr,
+    stringi,
     countrycode, 
     Ecfun, 
     lubridate

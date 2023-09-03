@@ -32,10 +32,12 @@ university of affiliation, as well as country.
 ``` r
 library(pubmedDashboard)
 
-address <- c("Department of Psychology, Cornell University, Ithaca, New York 14853-7601.",
-             "Dipartimento di Psicologia Generale, Università di Padova, Italy.",
-             "Universität Mannheim, Federal Republic of Germany.",
-             "Département de psychologie, Université du Québec à Montréal, Canada.")
+address <- c(
+  "Department of Psychology, Cornell University, Ithaca, New York 14853-7601.",
+  "Dipartimento di Psicologia Generale, Università di Padova, Italy.",
+  "Universität Mannheim, Federal Republic of Germany.",
+  "Département de psychologie, Université du Québec à Montréal, Canada."
+)
 
 get_affiliation(address, "department")
 #> [1] "Department of Psychology"            "Dipartimento di Psicologia Generale"
@@ -59,12 +61,14 @@ the file to disk for later reuse.
 ``` r
 pubmed_query_string <- paste(
   "passion [Title/Abstract]",
-  "AND Dualistic Model of Passion [Text Word]")
+  "AND Dualistic Model of Passion [Text Word]"
+)
 
 save_process_pubmed_batch(
   pubmed_query_string,
   year_low = 2023,
-  year_high = 2030)
+  year_high = 2030
+)
 #> 1/5 - Downloading PubMed data...
 #> [1] "PubMed data batch 1 / 1 downloaded..."
 #> 2/5 - Converting XLM files to dataframe...

@@ -15,10 +15,12 @@ extract_split_address(splitted.address, string)
 Extracts correct component from a splitted affiliation address
 }
 \examples{
-address <- c("Department of Psychology",
-             " Cornell University",
-             " Ithaca",
-             " New York 14853-7601.")
+address <- c(
+  "Department of Psychology",
+  " Cornell University",
+  " Ithaca",
+  " New York 14853-7601."
+)
 
 extract_split_address(address, "University")
 extract_split_address(address, "Department")

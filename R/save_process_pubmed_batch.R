@@ -10,12 +10,14 @@
 #' \dontrun{
 #' pubmed_query_string <- paste(
 #'   "passion [Title/Abstract]",
-#'   "AND Dualistic Model of Passion [Text Word]")
+#'   "AND Dualistic Model of Passion [Text Word]"
+#' )
 #'
 #' save_process_pubmed_batch(
 #'   pubmed_query_string,
 #'   year_low = 2023,
-#'   year_high = 2023)
+#'   year_high = 2023
+#' )
 #' }
 #' @export
 save_process_pubmed_batch <- function(pubmed_query_string,
