@@ -1,1 +1,1 @@
-- Document all functions (return + examples)
+- Add more functions (figures, tables, etc.)

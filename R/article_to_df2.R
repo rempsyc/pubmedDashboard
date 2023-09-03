@@ -4,6 +4,18 @@
 #' @param max_chars Maximum number of characters for the address.
 #' @param getKeywords Whether to extract keywords as well.
 #' @param getAuthors Whether to extract the author information.
+#' @examples
+#' \dontrun{
+#' dami_query <- paste(
+#'     "passion [Title/Abstract]",
+#'     "AND Dualistic Model of Passion [Text Word]",
+#'     "AND ('2023/01/01' [Date - Publication] : '2023/12/31' [Date - Publication])"
+#'    )
+#' dami_on_pubmed <- easyPubMed::get_pubmed_ids(dami_query)
+#' dami_abstracts_xml <- easyPubMed::fetch_pubmed_data(dami_on_pubmed)
+#' dami_abstracts_list <- easyPubMed::articles_to_list(dami_abstracts_xml)
+#' article_to_df2(pubmedArticle = dami_abstracts_list[[2]], autofill = FALSE)[1,]
+#' }
 #' @export
 article_to_df2 <- function(pubmedArticle, autofill = FALSE, max_chars = 500,
                            getKeywords = FALSE, getAuthors = TRUE) {

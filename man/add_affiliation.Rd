@@ -13,3 +13,19 @@ university).}
 \description{
 Add affiliations to a dataframe
 }
+\examples{
+\dontrun{
+d.fls <- batch_pubmed_download2(
+  pubmed_query_string = paste(
+    "passion [Title/Abstract]",
+    "AND Dualistic Model of Passion [Text Word]",
+    "AND ('2023/01/01' [Date - Publication] : '2023/12/31' [Date - Publication])"
+   ),
+   year_low = 2023,
+   year_high = 2023
+ )
+articles.df <- all_articles_to_df(d.fls)
+articles.df2 <- add_affiliation(articles.df)
+articles.df2[2, ]
+}
+}

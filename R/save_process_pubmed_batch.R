@@ -34,12 +34,13 @@ save_process_pubmed_batch <- function(pubmed_query_string,
     pubmed_query_string = paste(
       pubmed_query_string,
       paste0(
-        "AND ('", year_low, "/01/01'[Date - Publication] : '",
-        year_high, "/12/31'[Date - Publication])"
+        "AND ('", year_low, "/01/01' [Date - Publication] : '",
+        year_high, "/12/31' [Date - Publication])"
       )
     ),
     year_low = year_low,
-    year_high = year_high
+    year_high = year_high,
+    data_folder = data_folder
   )
 
   if (verbose) {
