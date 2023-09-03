@@ -84,14 +84,14 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="va">dami_query</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    <span class="st">"passion [Title/Abstract]"</span>,</span></span>
-<span class="r-in"><span>    <span class="st">"AND Dualistic Model of Passion [Text Word]"</span>,</span></span>
-<span class="r-in"><span>    <span class="st">"AND ('2023/01/01' [Date - Publication] : '2023/12/31' [Date - Publication])"</span></span></span>
-<span class="r-in"><span>   <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="st">"passion [Title/Abstract]"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"AND Dualistic Model of Passion [Text Word]"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"AND ('2023/01/01' [Date - Publication] : '2023/12/31' [Date - Publication])"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dami_on_pubmed</span> <span class="op">&lt;-</span> <span class="fu">easyPubMed</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/easyPubMed/man/get_pubmed_ids.html" class="external-link">get_pubmed_ids</a></span><span class="op">(</span><span class="va">dami_query</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dami_abstracts_xml</span> <span class="op">&lt;-</span> <span class="fu">easyPubMed</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/easyPubMed/man/fetch_pubmed_data.html" class="external-link">fetch_pubmed_data</a></span><span class="op">(</span><span class="va">dami_on_pubmed</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dami_abstracts_list</span> <span class="op">&lt;-</span> <span class="fu">easyPubMed</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/easyPubMed/man/articles_to_list.html" class="external-link">articles_to_list</a></span><span class="op">(</span><span class="va">dami_abstracts_xml</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">article_to_df2</span><span class="op">(</span>pubmedArticle <span class="op">=</span> <span class="va">dami_abstracts_list</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, autofill <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span></span></span>
+<span class="r-in"><span><span class="fu">article_to_df2</span><span class="op">(</span>pubmedArticle <span class="op">=</span> <span class="va">dami_abstracts_list</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, autofill <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>

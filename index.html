@@ -80,7 +80,7 @@
 <p>You can install the development version of <code>pubmedDashboard</code> like so:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># If `remotes` isn't installed, use `install.packages("remotes")`</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rempsyc/pubmedDashboard"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"rempsyc/pubmedDashboard"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="basic-examples">Basic Examples<a class="anchor" aria-label="anchor" href="#basic-examples"></a>
@@ -89,10 +89,12 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rempsyc/pubmedDashboard" class="external-link">pubmedDashboard</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">address</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Department of Psychology, Cornell University, Ithaca, New York 14853-7601."</span>,</span>
-<span>             <span class="st">"Dipartimento di Psicologia Generale, Università di Padova, Italy."</span>,</span>
-<span>             <span class="st">"Universität Mannheim, Federal Republic of Germany."</span>,</span>
-<span>             <span class="st">"Département de psychologie, Université du Québec à Montréal, Canada."</span><span class="op">)</span></span>
+<span><span class="va">address</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"Department of Psychology, Cornell University, Ithaca, New York 14853-7601."</span>,</span>
+<span>  <span class="st">"Dipartimento di Psicologia Generale, Università di Padova, Italy."</span>,</span>
+<span>  <span class="st">"Universität Mannheim, Federal Republic of Germany."</span>,</span>
+<span>  <span class="st">"Département de psychologie, Université du Québec à Montréal, Canada."</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/get_affiliation.html">get_affiliation</a></span><span class="op">(</span><span class="va">address</span>, <span class="st">"department"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Department of Psychology"            "Dipartimento di Psicologia Generale"</span></span>
@@ -112,12 +114,14 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pubmed_query_string</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span></span>
 <span>  <span class="st">"passion [Title/Abstract]"</span>,</span>
-<span>  <span class="st">"AND Dualistic Model of Passion [Text Word]"</span><span class="op">)</span></span>
+<span>  <span class="st">"AND Dualistic Model of Passion [Text Word]"</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/save_process_pubmed_batch.html">save_process_pubmed_batch</a></span><span class="op">(</span></span>
 <span>  <span class="va">pubmed_query_string</span>,</span>
 <span>  year_low <span class="op">=</span> <span class="fl">2023</span>,</span>
-<span>  year_high <span class="op">=</span> <span class="fl">2030</span><span class="op">)</span></span>
+<span>  year_high <span class="op">=</span> <span class="fl">2030</span></span>
+<span><span class="op">)</span></span>
 <span><span class="co">#&gt; 1/5 - Downloading PubMed data...</span></span>
 <span><span class="co">#&gt; [1] "PubMed data batch 1 / 1 downloaded..."</span></span>
 <span><span class="co">#&gt; 2/5 - Converting XLM files to dataframe...</span></span>

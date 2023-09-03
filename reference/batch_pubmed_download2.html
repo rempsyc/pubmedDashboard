@@ -90,12 +90,14 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="va">pubmed_query_string</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="st">"passion [Title/Abstract]"</span>,</span></span>
-<span class="r-in"><span>  <span class="st">"AND Dualistic Model of Passion [Text Word]"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="st">"AND Dualistic Model of Passion [Text Word]"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">batch_pubmed_download2</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="va">pubmed_query_string</span>,</span></span>
 <span class="r-in"><span>  year_low <span class="op">=</span> <span class="fl">2023</span>,</span></span>
-<span class="r-in"><span>  year_high <span class="op">=</span> <span class="fl">2023</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  year_high <span class="op">=</span> <span class="fl">2023</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
