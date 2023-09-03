@@ -5,6 +5,17 @@
 #' @param data_folder Where to save the data.
 #' @param batch_size The download batch size.
 #' @param api_key The api key for faster processing (optional).
+#' @examples
+#' \dontrun{
+#' pubmed_query_string <- paste(
+#'   "passion [Title/Abstract]",
+#'   "AND Dualistic Model of Passion [Text Word]")
+#'
+#' batch_pubmed_download2(
+#'   pubmed_query_string,
+#'   year_low = 2023,
+#'   year_high = 2023)
+#' }
 #' @export
 batch_pubmed_download2 <- function(pubmed_query_string,
                                    year_low = 2023,

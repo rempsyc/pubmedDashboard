@@ -29,3 +29,15 @@ batch_pubmed_download2(
 \description{
 Download PubMed data with query string
 }
+\examples{
+\dontrun{
+pubmed_query_string <- paste(
+  "passion [Title/Abstract]",
+  "AND Dualistic Model of Passion [Text Word]")
+
+batch_pubmed_download2(
+  pubmed_query_string,
+  year_low = 2023,
+  year_high = 2023)
+}
+}

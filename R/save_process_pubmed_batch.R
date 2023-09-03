@@ -6,6 +6,17 @@
 #' @param batch_size The download batch size.
 #' @param api_key The api key for faster processing (optional).
 #' @param verbose Whether to include progress messages.
+#' @examples
+#' \dontrun{
+#' pubmed_query_string <- paste(
+#'   "passion [Title/Abstract]",
+#'   "AND Dualistic Model of Passion [Text Word]")
+#'
+#' save_process_pubmed_batch(
+#'   pubmed_query_string,
+#'   year_low = 2023,
+#'   year_high = 2023)
+#' }
 #' @export
 save_process_pubmed_batch <- function(pubmed_query_string,
                                       year_low,

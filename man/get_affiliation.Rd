@@ -14,3 +14,14 @@ get_affiliation(address, info = "university")
 \description{
 Get affiliations
 }
+\examples{
+address <- c(
+  "Department of Psychology, Cornell University, Ithaca, New York 14853-7601.",
+  "Dipartimento di Psicologia Generale, Università di Padova, Italy.",
+  "Universität Mannheim, Federal Republic of Germany.",
+  "Département de psychologie, Université du Québec à Montréal, Canada.")
+
+get_affiliation(address, "department")
+get_affiliation(address, "university")
+
+}

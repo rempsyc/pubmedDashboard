@@ -32,3 +32,15 @@ save_process_pubmed_batch(
 \description{
 Mega function to process and save PubMed data
 }
+\examples{
+\dontrun{
+pubmed_query_string <- paste(
+  "passion [Title/Abstract]",
+  "AND Dualistic Model of Passion [Text Word]")
+
+save_process_pubmed_batch(
+  pubmed_query_string,
+  year_low = 2023,
+  year_high = 2023)
+}
+}

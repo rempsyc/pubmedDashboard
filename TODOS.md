@@ -1,1 +1,1 @@
-- Document all functions
+- Document all functions (return + examples)

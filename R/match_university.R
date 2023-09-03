@@ -12,10 +12,10 @@ match_university <- function(data) {
       university = ifelse(is.na(.data$university), partial_vlookup(
         .data$address, pubmedDashboard::universities$university),
         .data$university),
-      .after = .data$university
+      .after = "university"
     )
   data <- data %>%
-    dplyr::left_join(.data$universities, by = "university", multiple = "first") %>%
-    dplyr::relocate(.data$country_code, .after = "year")
+    dplyr::left_join("universities", by = "university", multiple = "first") %>%
+    dplyr::relocate("country_code", .after = "year")
   data
 }
