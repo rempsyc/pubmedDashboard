@@ -34,6 +34,9 @@
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/batch_pubmed_download2.html</loc>
   </url>
   <url>
+    <loc>https://rempsyc.github.io/pubmedDashboard/reference/clean_journals_continents.html</loc>
+  </url>
+  <url>
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/convert_hex_to_char.html</loc>
   </url>
   <url>
@@ -56,6 +59,9 @@
   </url>
   <url>
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/partial_vlookup.html</loc>
+  </url>
+  <url>
+    <loc>https://rempsyc.github.io/pubmedDashboard/reference/read_bind_all_data.html</loc>
   </url>
   <url>
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/save_process_pubmed_batch.html</loc>
