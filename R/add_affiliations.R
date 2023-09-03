@@ -16,7 +16,7 @@
 #' )
 #' articles.df <- all_articles_to_df(d.fls)
 #' articles.df2 <- add_affiliation(articles.df)
-#' articles.df2[2, ]
+#' articles.df2[5, ]
 #' }
 #' @export
 

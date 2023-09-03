@@ -13,7 +13,7 @@
 #' articles.df <- all_articles_to_df(d.fls)
 #' articles.df2 <- add_affiliation(articles.df)
 #' articles.df3 <- match_university(articles.df2)
-#' articles.df3[2, ]
+#' articles.df3[5, ]
 #' }
 #' @export
 match_university <- function(data) {
@@ -22,7 +22,7 @@ match_university <- function(data) {
       university_old = .data$university,
       university = partial_vlookup(
         .data$university,
-        pubmedDashboard::universities$university
+        stringi::stri_unescape_unicode(pubmedDashboard::universities$university)
       ),
       university = ifelse(is.na(.data$university), partial_vlookup(
         .data$address, pubmedDashboard::universities$university

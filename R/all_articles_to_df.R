@@ -15,7 +15,7 @@
 #'   year_high = 2023
 #' )
 #' articles.df <- all_articles_to_df(d.fls)
-#' articles.df2[2, ]
+#' articles.df[5, ]
 #' }
 #' @export
 all_articles_to_df <- function(d.fls) {
@@ -24,5 +24,6 @@ all_articles_to_df <- function(d.fls) {
     list.articles.df <- lapply(list.articles, article_to_df2)
   }) %>%
     dplyr::bind_rows() %>%
-    dplyr::distinct(.data$pmid, .keep_all = TRUE)
+    dplyr::distinct(.data$pmid, .keep_all = TRUE) %>%
+    dplyr::mutate(address = convert_hex_to_char(.data$address))
 }
