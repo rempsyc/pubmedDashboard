@@ -62,6 +62,23 @@
 
 </dl></div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">address</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"Department of Psychology, Cornell University, Ithaca, New York 14853-7601."</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"Dipartimento di Psicologia Generale, Università di Padova, Italy."</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"Universität Mannheim, Federal Republic of Germany."</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"Département de psychologie, Université du Québec à Montréal, Canada."</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">get_affiliation</span><span class="op">(</span><span class="va">address</span>, <span class="st">"department"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Department of Psychology"            "Dipartimento di Psicologia Generale"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3] NA                                    "Département de psychologie"         </span>
+<span class="r-in"><span><span class="fu">get_affiliation</span><span class="op">(</span><span class="va">address</span>, <span class="st">"university"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Cornell University"              "Università di Padova"           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3] "Universität Mannheim"            "Université du Québec à Montréal"</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
