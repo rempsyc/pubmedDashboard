@@ -18,22 +18,25 @@
 #' }
 #' @export
 match_university <- function(data) {
+  unis <- pubmedDashboard::universities
+  unis$university <- stringi::stri_unescape_unicode(unis$university)
+
   data <- data %>%
     dplyr::mutate(
       university_old = .data$university,
       university = partial_vlookup(
         .data$university,
-        stringi::stri_unescape_unicode(pubmedDashboard::universities$university)
+        unis$university
       ),
       university = ifelse(is.na(.data$university), partial_vlookup(
-        .data$address, pubmedDashboard::universities$university
+        .data$address, unis$university
       ),
       .data$university
       ),
       .after = "university"
     )
   data <- data %>%
-    dplyr::left_join(pubmedDashboard::universities, by = "university", multiple = "first") %>%
+    dplyr::left_join(unis, by = "university", multiple = "first") %>%
     dplyr::relocate("country_code", .after = "year")
   data
 }
