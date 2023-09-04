@@ -86,6 +86,9 @@ save_process_pubmed_batch(
 
 ## Example Dashboards
 
+The full source-code for these dashboards are available on the
+corresponding button at the top-right of each dashboard.
+
 ### Neglected 95% Dashboard
 
 [![](man/figures/n95.png)](https://remi-theriault.com/dashboards/neglected_95)

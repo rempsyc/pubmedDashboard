@@ -4,7 +4,7 @@
 read_bind_all_data <- function(data_folder = "data") {
   filenames <- list.files("data/", pattern = "articles_.*.rds", full.names = TRUE)
   ldf <- lapply(filenames, readRDS)
-  df <- bind_rows(ldf)
-  df <- best_duplicate(df, "pmid")
+  df <- dplyr::bind_rows(ldf)
+  df <- rempsyc::best_duplicate(df, "pmid")
   df
 }
