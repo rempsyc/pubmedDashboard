@@ -19,7 +19,9 @@ Imports:
     stringi,
     countrycode, 
     Ecfun, 
-    lubridate
+    lubridate,
+    ggplot2,
+    ggflags
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
