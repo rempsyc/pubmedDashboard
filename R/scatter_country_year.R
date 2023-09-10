@@ -33,9 +33,9 @@ scatter_country_year <- function(data, method = "lm") {
     dplyr::count(.data$year, name = "Papers") %>%
     dplyr::arrange(dplyr::desc(.data$year), dplyr::desc(.data$Papers)) %>%
     dplyr::left_join(by = "year", data %>%
-                dplyr::group_by(.data$year) %>%
-        dplyr::count(.data$year, name = "all_papers") %>%
-        dplyr::arrange(dplyr::desc(.data$year))) %>%
+      dplyr::group_by(.data$year) %>%
+      dplyr::count(.data$year, name = "all_papers") %>%
+      dplyr::arrange(dplyr::desc(.data$year))) %>%
     dplyr::mutate(
       percentage = round(.data$Papers / .data$all_papers * 100, 2),
       country = "Missing*"
@@ -47,7 +47,8 @@ scatter_country_year <- function(data, method = "lm") {
     dplyr::filter(!is.na(.data$continent)) %>%
     dplyr::count(name = "Papers") %>%
     dplyr::mutate(percentage = as.numeric(round(.data$Papers / get_year_papers(
-      data, .data$year) * 100, 2)))
+      data, .data$year
+    ) * 100, 2)))
 
   getPalette <- grDevices::colorRampPalette(RColorBrewer::brewer.pal(8, "Set2"))
   colours.country2 <- getPalette(length(unique(df_country_year$country)))

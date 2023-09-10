@@ -40,9 +40,9 @@ table_country_year <- function(data, datatable = TRUE) {
     dplyr::count(.data$year, name = "Papers") %>%
     dplyr::arrange(dplyr::desc(.data$year), dplyr::desc(.data$Papers)) %>%
     dplyr::left_join(by = "year", data %>%
-                       dplyr::group_by(.data$year) %>%
-                       dplyr::count(.data$year, name = "all_papers") %>%
-                       dplyr::arrange(dplyr::desc(.data$year))) %>%
+      dplyr::group_by(.data$year) %>%
+      dplyr::count(.data$year, name = "all_papers") %>%
+      dplyr::arrange(dplyr::desc(.data$year))) %>%
     dplyr::mutate(
       percentage = round(.data$Papers / .data$all_papers * 100, 2),
       country = "Missing*"
