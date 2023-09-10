@@ -27,18 +27,6 @@
 #' @export
 waffle_country <- function(data) {
   require(ggflags)
-  # x <- data %>%
-  #   dplyr::mutate(missing = sum(is.na(.data$country_code))/dplyr::n()) %>%
-  #   dplyr::filter(!is.na(.data$country_code)) %>%
-  #   dplyr::mutate(nrow = dplyr::n()) %>%
-  #   dplyr::count(.data$country, .data$country_code, .data$nrow, sort = TRUE, name = "Papers") %>%
-  #   dplyr::mutate(Percentage = .data$Papers / nrow) %>%
-  #   dplyr::select(-"nrow") %>%
-  #   dplyr::add_row(country = "Missing*",
-  #           Papers = sum(is.na(data$country)),
-  #           Percentage = sum(is.na(data$country)) / nrow(data),
-  #           .before = 1) %>%
-  #   dplyr::rename_with(stringr::str_to_title)
   . <- NULL
   x <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$country)) / dplyr::n()) %>%
