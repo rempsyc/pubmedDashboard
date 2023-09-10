@@ -132,6 +132,17 @@
 <span><span class="co">#&gt; File saved in data/articles_2023_2030.rds</span></span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="table-formatting-functions">Table formatting functions<a class="anchor" aria-label="anchor" href="#table-formatting-functions"></a>
+</h2>
+<p>Various functions allow to prepare DT tables to display specific information, such as journal paper percentages by continent or country.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/read_bind_all_data.html">read_bind_all_data</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/table_journal_continent.html">table_journal_continent</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/table_journal_continent.png"></p>
+</div>
+<div class="section level2">
 <h2 id="example-dashboards">Example Dashboards<a class="anchor" aria-label="anchor" href="#example-dashboards"></a>
 </h2>
 <p>The full source-code for these dashboards are available on the corresponding button at the top-right of each dashboard.</p>
