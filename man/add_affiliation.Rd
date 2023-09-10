@@ -18,9 +18,9 @@ Add affiliations to pubmedDashboard dataframe
 .old_wd <- setwd(tempdir())
 }
 \dontrun{
-pubmed_query_string = paste(
- "passion [Title/Abstract]",
- "AND Dualistic Model of Passion [Text Word]",
+pubmed_query_string <- paste(
+  "passion [Title/Abstract]",
+  "AND Dualistic Model of Passion [Text Word]",
   "AND ('2023/01/01' [Date - Publication] : '2023/12/31' [Date - Publication])"
 )
 

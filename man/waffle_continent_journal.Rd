@@ -28,7 +28,7 @@ save_process_pubmed_batch(
   year_high = 2023
 )
 data <- read_bind_all_data()
-waffle_journal_continent(data)
+waffle_continent_journal(data)
 }
 \dontshow{
 unlink("easyPubMed_data_01.txt")

@@ -33,7 +33,7 @@ batch_pubmed_download2 <- function(pubmed_query_string,
                                    api_key = NULL) {
   if (!dir.exists(data_folder)) {
     dir.create(data_folder)
-    }
+  }
 
   easyPubMed::batch_pubmed_download(
     pubmed_query_string = paste(

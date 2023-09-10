@@ -18,7 +18,7 @@
 #'   year_high = 2023
 #' )
 #' data <- read_bind_all_data()
-#' table_journal_continent(data)
+#' table_continent(data)
 #' }
 #' \dontshow{
 #' unlink("easyPubMed_data_01.txt")
@@ -27,7 +27,7 @@
 #' @importFrom rlang .data
 #' @export
 
-table_journal_continent <- function(data, datatable = TRUE) {
+table_continent <- function(data, datatable = TRUE) {
   x <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
     dplyr::filter(!is.na(.data$continent)) %>%

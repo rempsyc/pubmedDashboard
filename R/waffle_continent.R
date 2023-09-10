@@ -26,7 +26,7 @@
 #' @export
 
 waffle_continent <- function(data) {
-  data.waffle <- data %>%
+  x <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
     dplyr::filter(!is.na(.data$continent)) %>%
     dplyr::group_by(.data$continent) %>%
@@ -46,6 +46,6 @@ waffle_continent <- function(data) {
     dplyr::select(-c("nrow", "Papers")) %>%
     dplyr::rename_with(stringr::str_to_title, .cols = 1)
 
-  waffle::waffle(data.waffle, legend_pos = "right") +
+  waffle::waffle(x, legend_pos = "right") +
     ggplot2::theme(legend.text = ggplot2::element_text(size = 15))
 }

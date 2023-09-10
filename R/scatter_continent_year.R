@@ -17,7 +17,7 @@
 #'   year_high = 2023
 #' )
 #' data <- read_bind_all_data()
-#' suppressWarnings(scatter_journal_continent_year(data))
+#' suppressWarnings(scatter_continent_year(data))
 #' }
 #' \dontshow{
 #' unlink("easyPubMed_data_01.txt")
@@ -26,7 +26,7 @@
 #' @importFrom rlang .data
 #' @export
 
-scatter_journal_continent_year <- function(data, method = "lm") {
+scatter_continent_year <- function(data, method = "lm") {
   data <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
     dplyr::filter(!is.na(.data$continent)) %>%
