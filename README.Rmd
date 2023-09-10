@@ -72,7 +72,22 @@ save_process_pubmed_batch(
   year_low = 2023,
   year_high = 2030
 )
+
 ```
+
+## Table formatting functions
+
+Various functions allow to prepare DT tables to display specific information, such as journal paper percentages by continent or country.
+
+```{r, eval=FALSE}
+
+data <- read_bind_all_data()
+
+table_journal_continent(data)
+
+```
+
+![](man/figures/table_journal_continent.png)
 
 ## Example Dashboards
 

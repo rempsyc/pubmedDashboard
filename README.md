@@ -84,6 +84,20 @@ save_process_pubmed_batch(
 #> File saved in data/articles_2023_2030.rds
 ```
 
+## Table formatting functions
+
+Various functions allow to prepare DT tables to display specific
+information, such as journal paper percentages by continent or country.
+
+``` r
+
+data <- read_bind_all_data()
+
+table_journal_continent(data)
+```
+
+![](man/figures/table_journal_continent.png)
+
 ## Example Dashboards
 
 The full source-code for these dashboards are available on the

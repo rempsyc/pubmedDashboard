@@ -21,7 +21,8 @@ Imports:
     Ecfun, 
     lubridate,
     ggplot2,
-    ggflags
+    ggflags,
+    DT
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
