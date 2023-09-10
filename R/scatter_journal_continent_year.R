@@ -14,10 +14,9 @@
 #' save_process_pubmed_batch(
 #'   pubmed_query_string,
 #'   year_low = 2022,
-#'   year_high = 2023,
-#'   data_folder = ""
+#'   year_high = 2023
 #' )
-#' data <- read_bind_all_data(data_folder = "")
+#' data <- read_bind_all_data()
 #' suppressWarnings(scatter_journal_continent_year(data))
 #' }
 #' \dontshow{

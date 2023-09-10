@@ -13,11 +13,10 @@
 #' save_process_pubmed_batch(
 #'   pubmed_query_string,
 #'   year_low = 2023,
-#'   year_high = 2023,
-#'   data_folder = ""
+#'   year_high = 2023
 #' )
-#' data <- read_bind_all_data(data_folder = "")
-#' waffle_journal_continent(data)
+#' data <- read_bind_all_data()
+#' waffle_continent(data)
 #' }
 #' \dontshow{
 #' unlink("easyPubMed_data_01.txt")
@@ -26,7 +25,7 @@
 #' @importFrom rlang .data
 #' @export
 
-waffle_journal_continent <- function(data) {
+waffle_continent <- function(data) {
   data.waffle <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
     dplyr::filter(!is.na(.data$continent)) %>%

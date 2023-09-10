@@ -17,8 +17,7 @@
 #' d.fls <- batch_pubmed_download2(
 #'   pubmed_query_string = pubmed_query_string,
 #'   year_low = 2023,
-#'   year_high = 2023,
-#'   data_folder = ""
+#'   year_high = 2023
 #' )
 #' articles.df <- all_articles_to_df(d.fls)
 #' articles.df2 <- add_affiliation(articles.df)

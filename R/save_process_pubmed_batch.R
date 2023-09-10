@@ -19,8 +19,7 @@
 #' save_process_pubmed_batch(
 #'   pubmed_query_string,
 #'   year_low = 2023,
-#'   year_high = 2023,
-#'   data_folder = ""
+#'   year_high = 2023
 #' )
 #' }
 #' \dontshow{
