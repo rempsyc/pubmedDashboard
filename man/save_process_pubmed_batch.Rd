@@ -34,6 +34,9 @@ Mega function to process and save PubMed data
 }
 \examples{
 \dontrun{
+\dontshow{
+.old_wd <- setwd("man")
+}
 pubmed_query_string <- paste(
   "passion [Title/Abstract]",
   "AND Dualistic Model of Passion [Text Word]"
@@ -44,5 +47,8 @@ save_process_pubmed_batch(
   year_low = 2023,
   year_high = 2023
 )
+\dontshow{
+setwd(.old_wd)
+}
 }
 }

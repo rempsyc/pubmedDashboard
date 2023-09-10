@@ -2,6 +2,9 @@
 #' @param data The processed dataframe of data
 #' @examples
 #' \dontrun{
+#' \dontshow{
+#' .old_wd <- setwd("man")
+#' }
 #' pubmed_query_string <- paste(
 #'   "passion [Title/Abstract]",
 #'   "AND Dualistic Model of Passion [Text Word]"
@@ -14,6 +17,9 @@
 #' )
 #' data <- read_bind_all_data()
 #' waffle_journal_continent(data)
+#' \dontshow{
+#' setwd(.old_wd)
+#' }
 #' }
 #' @importFrom rlang .data
 #' @export

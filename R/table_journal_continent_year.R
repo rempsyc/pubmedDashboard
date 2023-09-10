@@ -1,4 +1,4 @@
-#' @title Generate table of journal paper percentages, by continent
+#' @title Generate table of journal paper percentages, by continent and year
 #' @param data The processed dataframe of data
 #' @param datatable Whether to output a [DT::datatable] HTML table widget
 #'  instead of a regular dataframe (defaults to TRUE).
@@ -14,11 +14,11 @@
 #'
 #' save_process_pubmed_batch(
 #'   pubmed_query_string,
-#'   year_low = 2023,
+#'   year_low = 2022,
 #'   year_high = 2023
 #' )
 #' data <- read_bind_all_data()
-#' table_journal_continent(data)
+#' table_journal_continent_year(data)
 #' \dontshow{
 #' setwd(.old_wd)
 #' }
@@ -26,10 +26,16 @@
 #' @importFrom rlang .data
 #' @export
 
-table_journal_continent <- function(data, datatable = TRUE) {
+table_journal_continent_year <- function(data, datatable = TRUE) {
+  continent_paper_missing <- data %>%
+    dplyr::group_by(.data$year) %>%
+    dplyr::summarize(Missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
+    dplyr::pull("Missing")
+
   x <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
     dplyr::filter(!is.na(.data$continent)) %>%
+    dplyr::group_by(.data$year) %>%
     dplyr::summarize(
       Papers = dplyr::n(),
       `North America` = sum(.data$continent == "Northern America") / dplyr::n(),
@@ -38,16 +44,19 @@ table_journal_continent <- function(data, datatable = TRUE) {
       Oceania = sum(.data$continent == "Oceania") / dplyr::n(),
       `Latin America` = sum(.data$continent == "Latin America and the Caribbean") / dplyr::n(),
       Africa = sum(.data$continent == "Africa") / dplyr::n(),
-      Missing = dplyr::first(missing),
+      `Missing*` = dplyr::first(missing),
     ) %>%
-    dplyr::mutate(dplyr::across("North America":"Missing", ~ .x * 100)) %>%
-    dplyr::mutate(dplyr::across("North America":"Missing", ~ round(.x, 2))) %>%
-    dplyr::rename_with(stringr::str_to_title) %>%
-    dplyr::rename("Missing*" = "Missing")
+    dplyr::mutate(
+      `Missing*` = continent_paper_missing, # [-1]
+      dplyr::across("North America":"Missing*", ~ round(.x * 100, 2))
+    ) %>%
+    dplyr::arrange(dplyr::desc(.data$year)) %>%
+    dplyr::rename_with(stringr::str_to_title)
+
   if (isTRUE(datatable)) {
     x <- DT::datatable(x,
       options = list(searching = FALSE, paging = FALSE),
-      caption = "Journal paper percentages, by continent"
+      caption = "Journal paper percentages, by continent and year"
     )
   }
   x

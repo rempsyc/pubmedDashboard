@@ -14,6 +14,9 @@ Generate a waffle chart of journal paper percentages, by continent (each square 
 }
 \examples{
 \dontrun{
+\dontshow{
+.old_wd <- setwd("man")
+}
 pubmed_query_string <- paste(
   "passion [Title/Abstract]",
   "AND Dualistic Model of Passion [Text Word]"
@@ -26,5 +29,8 @@ save_process_pubmed_batch(
 )
 data <- read_bind_all_data()
 waffle_journal_continent(data)
+\dontshow{
+setwd(.old_wd)
+}
 }
 }

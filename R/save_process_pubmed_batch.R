@@ -8,6 +8,9 @@
 #' @param verbose Whether to include progress messages.
 #' @examples
 #' \dontrun{
+#' \dontshow{
+#' .old_wd <- setwd("man")
+#' }
 #' pubmed_query_string <- paste(
 #'   "passion [Title/Abstract]",
 #'   "AND Dualistic Model of Passion [Text Word]"
@@ -18,6 +21,9 @@
 #'   year_low = 2023,
 #'   year_high = 2023
 #' )
+#' \dontshow{
+#' setwd(.old_wd)
+#' }
 #' }
 #' @export
 save_process_pubmed_batch <- function(pubmed_query_string,

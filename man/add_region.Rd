@@ -14,6 +14,9 @@ Add regions to pubmedDashboard dataframe
 }
 \examples{
 \dontrun{
+\dontshow{
+.old_wd <- setwd("man")
+}
 d.fls <- batch_pubmed_download2(
   pubmed_query_string = paste(
     "passion [Title/Abstract]",
@@ -28,5 +31,8 @@ articles.df2 <- add_affiliation(articles.df)
 articles.df3 <- match_university(articles.df2)
 articles.df4 <- add_region(articles.df3)
 articles.df4[2, ]
+\dontshow{
+setwd(.old_wd)
+}
 }
 }

@@ -14,6 +14,9 @@ Convert list of PubMed XLM files to dataframe
 }
 \examples{
 \dontrun{
+\dontshow{
+.old_wd <- setwd("man")
+}
 pubmed_query_string <- paste(
   "passion [Title/Abstract]",
   "AND Dualistic Model of Passion [Text Word]",
@@ -26,5 +29,8 @@ d.fls <- batch_pubmed_download2(
 )
 articles.df <- all_articles_to_df(d.fls)
 articles.df[5, ]
+\dontshow{
+setwd(.old_wd)
+}
 }
 }

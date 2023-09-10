@@ -3,6 +3,9 @@
 #' @importFrom rlang .data
 #' @examples
 #' \dontrun{
+#' \dontshow{
+#' .old_wd <- setwd("man")
+#' }
 #' d.fls <- batch_pubmed_download2(
 #'   pubmed_query_string = paste(
 #'     "passion [Title/Abstract]",
@@ -16,6 +19,9 @@
 #' articles.df2 <- add_affiliation(articles.df)
 #' articles.df3 <- match_university(articles.df2)
 #' get_country(articles.df3$address)
+#' \dontshow{
+#' setwd(.old_wd)
+#' }
 #' }
 #' @export
 get_country <- function(address) {

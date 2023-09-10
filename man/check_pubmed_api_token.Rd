@@ -14,7 +14,7 @@ Check whether the PubMed API token is of the correct length and valid
 }
 \examples{
 API_TOKEN_PUBMED <- c(
-  GNZuCGNZuCGNZuCGNZuCGNZuCtwed3twed32
+  "GNZuCGNZuCGNZuCGNZuCGNZuCtwed3twed32"
 )
 
 check_pubmed_api_token(API_TOKEN_PUBMED)

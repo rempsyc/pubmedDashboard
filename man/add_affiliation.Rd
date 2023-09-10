@@ -15,6 +15,9 @@ Add affiliations to pubmedDashboard dataframe
 }
 \examples{
 \dontrun{
+\dontshow{
+.old_wd <- setwd("man")
+}
 d.fls <- batch_pubmed_download2(
   pubmed_query_string = paste(
     "passion [Title/Abstract]",
@@ -27,5 +30,8 @@ d.fls <- batch_pubmed_download2(
 articles.df <- all_articles_to_df(d.fls)
 articles.df2 <- add_affiliation(articles.df)
 articles.df2[5, ]
+\dontshow{
+setwd(.old_wd)
+}
 }
 }
