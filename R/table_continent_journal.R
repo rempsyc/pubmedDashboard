@@ -30,24 +30,27 @@
 table_continent_journal <- function(data, datatable = TRUE) {
   journal_paper_missing <- data %>%
     dplyr::group_by(.data$journal) %>%
-    dplyr::summarize(Missing = sum(is.na(.data$continent))/dplyr::n()) %>%
+    dplyr::summarize(Missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
     dplyr::pull(.data$Missing)
 
   x <- data %>%
-    dplyr::mutate(missing = sum(is.na(.data$continent))/dplyr::n()) %>%
+    dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
     dplyr::filter(!is.na(.data$continent)) %>%
     dplyr::group_by(.data$journal) %>%
-    dplyr::summarize(Papers = dplyr::n(),
-              `North America` = sum(.data$continent == "Northern America")/dplyr::n(),
-              Europe = sum(.data$continent == "Europe")/dplyr::n(),
-              Asia = sum(.data$continent == "Asia")/dplyr::n(),
-              Oceania = sum(.data$continent == "Oceania")/dplyr::n(),
-              `Latin America` = sum(.data$continent == "Latin America and the Caribbean")/dplyr::n(),
-              Africa = sum(.data$continent == "Africa")/dplyr::n(),
-              `Missing*` = dplyr::first(missing),
+    dplyr::summarize(
+      Papers = dplyr::n(),
+      `North America` = sum(.data$continent == "Northern America") / dplyr::n(),
+      Europe = sum(.data$continent == "Europe") / dplyr::n(),
+      Asia = sum(.data$continent == "Asia") / dplyr::n(),
+      Oceania = sum(.data$continent == "Oceania") / dplyr::n(),
+      `Latin America` = sum(.data$continent == "Latin America and the Caribbean") / dplyr::n(),
+      Africa = sum(.data$continent == "Africa") / dplyr::n(),
+      `Missing*` = dplyr::first(missing),
     ) %>%
-    dplyr::mutate(`Missing*` = journal_paper_missing,
-                  dplyr::across("North America":"Missing*", ~ round(.x * 100, 2))) %>%
+    dplyr::mutate(
+      `Missing*` = journal_paper_missing,
+      dplyr::across("North America":"Missing*", ~ round(.x * 100, 2))
+    ) %>%
     dplyr::rename_with(stringr::str_to_title)
 
   if (isTRUE(datatable)) {

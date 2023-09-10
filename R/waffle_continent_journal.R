@@ -44,7 +44,7 @@ waffle_continent_journal <- function(data) {
     dplyr::mutate(continent = factor(.data$continent, levels = continent_order(short = TRUE)))
 
   colors <- suppressWarnings(RColorBrewer::brewer.pal(
-    length(unique(data$continent)), "Set2"
+    length(unique(x$continent)), "Set2"
   ))
 
   x %>%
