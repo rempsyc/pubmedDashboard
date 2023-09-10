@@ -8,6 +8,9 @@ table_journal_continent(data, datatable = TRUE)
 }
 \arguments{
 \item{data}{The processed dataframe of data}
+
+\item{datatable}{Whether to output a \link[DT:datatable]{DT::datatable} HTML table widget
+instead of a regular dataframe (defaults to TRUE).}
 }
 \description{
 Generate table of journal paper percentages, by continent

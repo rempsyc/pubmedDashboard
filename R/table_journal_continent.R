@@ -1,5 +1,7 @@
 #' @title Generate table of journal paper percentages, by continent
 #' @param data The processed dataframe of data
+#' @param datatable Whether to output a [DT::datatable] HTML table widget
+#'  instead of a regular dataframe (defaults to TRUE).
 #' @examples
 #' \dontrun{
 #' pubmed_query_string <- paste(
