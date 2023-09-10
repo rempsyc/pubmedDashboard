@@ -85,10 +85,13 @@
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/us_states.html</loc>
   </url>
   <url>
-    <loc>https://rempsyc.github.io/pubmedDashboard/reference/waffle_flags.html</loc>
+    <loc>https://rempsyc.github.io/pubmedDashboard/reference/waffle_continent.html</loc>
   </url>
   <url>
-    <loc>https://rempsyc.github.io/pubmedDashboard/reference/waffle_journal_continent.html</loc>
+    <loc>https://rempsyc.github.io/pubmedDashboard/reference/waffle_continent_journal.html</loc>
+  </url>
+  <url>
+    <loc>https://rempsyc.github.io/pubmedDashboard/reference/waffle_flags.html</loc>
   </url>
   <url>
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/world_capitals.html</loc>
