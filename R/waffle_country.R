@@ -26,6 +26,7 @@
 #' @importFrom ggplot2 layer
 #' @export
 waffle_country <- function(data) {
+  require(ggflags)
   # x <- data %>%
   #   dplyr::mutate(missing = sum(is.na(.data$country_code))/dplyr::n()) %>%
   #   dplyr::filter(!is.na(.data$country_code)) %>%
@@ -119,5 +120,5 @@ waffle_country_internal <- function(in_map_var, len_x = NA, na_flag = "ac") {
         ggplot2::aes(.data$x, .data$y), colour = "white", size = 10
       )
   }
-  return(p)
+  p
 }

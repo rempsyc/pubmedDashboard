@@ -30,7 +30,7 @@
 save_process_pubmed_batch <- function(pubmed_query_string,
                                       year_low,
                                       year_high,
-                                      data_folder = "data/",
+                                      data_folder = "data",
                                       batch_size = 5000,
                                       api_key = NULL,
                                       verbose = TRUE) {

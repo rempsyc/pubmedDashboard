@@ -78,13 +78,21 @@ save_process_pubmed_batch(
 
 Various functions allow to prepare DT tables to display specific information, such as journal paper percentages by continent or country.
 
-```{r, eval=FALSE}
+```{r read_bind_all, message=FALSE}
 data <- read_bind_all_data()
-
-table_journal_continent(data)
 ```
 
+```{r table_continent, eval = FALSE}
+table_continent(data)
+```
+
+
 ![](man/figures/table_journal_continent.png)
+
+```{r waffle_country, warning=FALSE, message=FALSE}
+waffle_country(data)
+```
+
 
 ## Example Dashboards
 

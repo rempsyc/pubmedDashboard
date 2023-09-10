@@ -90,13 +90,20 @@ Various functions allow to prepare DT tables to display specific
 information, such as journal paper percentages by continent or country.
 
 ``` r
-
 data <- read_bind_all_data()
+```
 
-table_journal_continent(data)
+``` r
+table_continent(data)
 ```
 
 ![](man/figures/table_journal_continent.png)
+
+``` r
+waffle_country(data)
+```
+
+<img src="man/figures/README-waffle_country-1.png" width="100%" />
 
 ## Example Dashboards
 
