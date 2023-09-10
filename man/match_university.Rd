@@ -13,23 +13,25 @@ match_university(data)
 Match list of universities to countries in a dataframe
 }
 \examples{
-\dontrun{
 \dontshow{
-.old_wd <- setwd("man")
+.old_wd <- setwd(tempdir())
 }
+\dontrun{
 d.fls <- batch_pubmed_download2(
   pubmed_query_string = paste(
     "passion [Title/Abstract]",
     "AND Dualistic Model of Passion [Text Word]",
     "AND ('2023/01/01' [Date - Publication] : '2023/12/31' [Date - Publication])"
-  )
+  ),
+  data_folder = ""
 )
 articles.df <- all_articles_to_df(d.fls)
 articles.df2 <- add_affiliation(articles.df)
 articles.df3 <- match_university(articles.df2)
 articles.df3[5, ]
-\dontshow{
-setwd(.old_wd)
 }
+\dontshow{
+unlink("easyPubMed_data_01.txt")
+setwd(.old_wd)
 }
 }

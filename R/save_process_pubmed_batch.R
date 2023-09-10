@@ -7,10 +7,10 @@
 #' @param api_key The api key for faster processing (optional).
 #' @param verbose Whether to include progress messages.
 #' @examples
-#' \dontrun{
 #' \dontshow{
-#' .old_wd <- setwd("man")
+#' .old_wd <- setwd(tempdir())
 #' }
+#' \dontrun{
 #' pubmed_query_string <- paste(
 #'   "passion [Title/Abstract]",
 #'   "AND Dualistic Model of Passion [Text Word]"
@@ -19,17 +19,19 @@
 #' save_process_pubmed_batch(
 #'   pubmed_query_string,
 #'   year_low = 2023,
-#'   year_high = 2023
+#'   year_high = 2023,
+#'   data_folder = ""
 #' )
-#' \dontshow{
-#' setwd(.old_wd)
 #' }
+#' \dontshow{
+#' unlink("easyPubMed_data_01.txt")
+#' setwd(.old_wd)
 #' }
 #' @export
 save_process_pubmed_batch <- function(pubmed_query_string,
                                       year_low,
                                       year_high,
-                                      data_folder = "data",
+                                      data_folder = "data/",
                                       batch_size = 5000,
                                       api_key = NULL,
                                       verbose = TRUE) {

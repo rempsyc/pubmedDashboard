@@ -6,6 +6,9 @@
 #' @param batch_size The download batch size.
 #' @param api_key The api key for faster processing (optional).
 #' @examples
+#' \dontshow{
+#' .old_wd <- setwd(tempdir())
+#' }
 #' \dontrun{
 #' pubmed_query_string <- paste(
 #'   "passion [Title/Abstract]",
@@ -15,14 +18,19 @@
 #' batch_pubmed_download2(
 #'   pubmed_query_string,
 #'   year_low = 2023,
-#'   year_high = 2023
+#'   year_high = 2023,
+#'   data_folder = ""
 #' )
+#' }
+#' \dontshow{
+#' unlink("easyPubMed_data_01.txt")
+#' setwd(.old_wd)
 #' }
 #' @export
 batch_pubmed_download2 <- function(pubmed_query_string,
                                    year_low = 2023,
                                    year_high = 2030,
-                                   data_folder = "data",
+                                   data_folder = "data/",
                                    batch_size = 5000,
                                    api_key = NULL) {
   easyPubMed::batch_pubmed_download(
@@ -33,7 +41,7 @@ batch_pubmed_download2 <- function(pubmed_query_string,
         year_high, "/12/31'[Date - Publication])"
       )
     ),
-    dest_file_prefix = paste0(data_folder, "/easyPubMed_data_"),
+    dest_file_prefix = paste0(data_folder, "easyPubMed_data_"),
     api_key = api_key,
     batch_size = batch_size
   )

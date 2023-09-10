@@ -8,9 +8,15 @@
 #' check_pubmed_api_token(API_TOKEN_PUBMED)
 #' @export
 check_pubmed_api_token <- function(API_TOKEN_PUBMED) {
-  if (API_TOKEN_PUBMED == "") stop(
-    "API_TOKEN_PUBMED is an empty string. Terminating workflow.")
-  else if (nchar(API_TOKEN_PUBMED) != 36) stop(
-    "API_TOKEN_PUBMED is not 36 characters-long. Terminating workflow.")
-  else print("API TOKEN OK")
+  if (API_TOKEN_PUBMED == "") {
+    stop(
+      "API_TOKEN_PUBMED is an empty string. Terminating workflow."
+    )
+  } else if (nchar(API_TOKEN_PUBMED) != 36) {
+    stop(
+      "API_TOKEN_PUBMED is not 36 characters-long. Terminating workflow."
+    )
+  } else {
+    print("API TOKEN OK")
+  }
 }

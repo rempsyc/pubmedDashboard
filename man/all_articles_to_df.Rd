@@ -13,10 +13,10 @@ all_articles_to_df(d.fls)
 Convert list of PubMed XLM files to dataframe
 }
 \examples{
-\dontrun{
 \dontshow{
-.old_wd <- setwd("man")
+.old_wd <- setwd(tempdir())
 }
+\dontrun{
 pubmed_query_string <- paste(
   "passion [Title/Abstract]",
   "AND Dualistic Model of Passion [Text Word]",
@@ -25,12 +25,14 @@ pubmed_query_string <- paste(
 d.fls <- batch_pubmed_download2(
   pubmed_query_string = pubmed_query_string,
   year_low = 2023,
-  year_high = 2023
+  year_high = 2023,
+  data_folder = ""
 )
 articles.df <- all_articles_to_df(d.fls)
 articles.df[5, ]
-\dontshow{
-setwd(.old_wd)
 }
+\dontshow{
+unlink("easyPubMed_data_01.txt")
+setwd(.old_wd)
 }
 }

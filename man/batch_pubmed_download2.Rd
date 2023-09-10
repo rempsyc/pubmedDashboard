@@ -8,7 +8,7 @@ batch_pubmed_download2(
   pubmed_query_string,
   year_low = 2023,
   year_high = 2030,
-  data_folder = "data",
+  data_folder = "data/",
   batch_size = 5000,
   api_key = NULL
 )
@@ -30,6 +30,9 @@ batch_pubmed_download2(
 Download PubMed data with query string
 }
 \examples{
+\dontshow{
+.old_wd <- setwd(tempdir())
+}
 \dontrun{
 pubmed_query_string <- paste(
   "passion [Title/Abstract]",
@@ -39,7 +42,12 @@ pubmed_query_string <- paste(
 batch_pubmed_download2(
   pubmed_query_string,
   year_low = 2023,
-  year_high = 2023
+  year_high = 2023,
+  data_folder = ""
 )
+}
+\dontshow{
+unlink("easyPubMed_data_01.txt")
+setwd(.old_wd)
 }
 }

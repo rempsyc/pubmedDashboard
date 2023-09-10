@@ -1,7 +1,6 @@
 #' @title Generate table of journal paper percentages, by continent and year
 #' @param data The processed dataframe of data
-#' @param datatable Whether to output a [DT::datatable] HTML table widget
-#'  instead of a regular dataframe (defaults to TRUE).
+#' @param method Which method to use for the regression line, either "lm" (default) or "loess".
 #' @examples
 #' \dontshow{
 #' .old_wd <- setwd(tempdir())
@@ -19,7 +18,7 @@
 #'   data_folder = ""
 #' )
 #' data <- read_bind_all_data(data_folder = "")
-#' table_journal_continent_year(data)
+#' suppressWarnings(scatter_journal_continent_year(data))
 #' }
 #' \dontshow{
 #' unlink("easyPubMed_data_01.txt")
@@ -28,38 +27,43 @@
 #' @importFrom rlang .data
 #' @export
 
-table_journal_continent_year <- function(data, datatable = TRUE) {
-  continent_paper_missing <- data %>%
-    dplyr::group_by(.data$year) %>%
-    dplyr::summarize(Missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
-    dplyr::pull("Missing")
-
-  x <- data %>%
+scatter_journal_continent_year <- function(data, method = "lm") {
+  data <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
     dplyr::filter(!is.na(.data$continent)) %>%
     dplyr::group_by(.data$year) %>%
     dplyr::summarize(
-      Papers = dplyr::n(),
       `North America` = sum(.data$continent == "Northern America") / dplyr::n(),
       Europe = sum(.data$continent == "Europe") / dplyr::n(),
       Asia = sum(.data$continent == "Asia") / dplyr::n(),
       Oceania = sum(.data$continent == "Oceania") / dplyr::n(),
       `Latin America` = sum(.data$continent == "Latin America and the Caribbean") / dplyr::n(),
       Africa = sum(.data$continent == "Africa") / dplyr::n(),
-      `Missing*` = dplyr::first(missing),
     ) %>%
+    dplyr::mutate(dplyr::across(2:6, ~ .x * 100)) %>%
+    dplyr::arrange(.data$year) %>%
+    tidyr::pivot_longer(-.data$year, names_to = "continent", values_to = "papers_percentage") %>%
     dplyr::mutate(
-      `Missing*` = continent_paper_missing, # [-1]
-      dplyr::across("North America":"Missing*", ~ round(.x * 100, 2))
-    ) %>%
-    dplyr::arrange(dplyr::desc(.data$year)) %>%
-    dplyr::rename_with(stringr::str_to_title)
-
-  if (isTRUE(datatable)) {
-    x <- DT::datatable(x,
-      options = list(searching = FALSE, paging = FALSE),
-      caption = "Journal paper percentages, by continent and year"
+      year = as.numeric(.data$year), continent = factor(
+        .data$continent,
+        levels = continent_order(short = TRUE)
+      ),
+      papers_percentage = round(.data$papers_percentage)
     )
-  }
-  x
+
+  colors <- suppressWarnings(RColorBrewer::brewer.pal(
+    length(unique(data$continent)), "Set2"
+  ))
+
+  rempsyc::nice_scatter(
+    data,
+    predictor = "year",
+    response = "papers_percentage",
+    group = "continent",
+    colours = colors,
+    method = method,
+    groups.order = "decreasing",
+    ytitle = "% of All Papers"
+  ) %>%
+    plotly::ggplotly(tooltip = c("x", "y"))
 }

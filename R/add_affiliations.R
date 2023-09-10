@@ -4,25 +4,29 @@
 #' @importFrom dplyr %>%
 #' @importFrom rlang .data
 #' @examples
-#' \dontrun{
 #' \dontshow{
-#' .old_wd <- setwd("man")
+#' .old_wd <- setwd(tempdir())
 #' }
+#' \dontrun{
+#' pubmed_query_string = paste(
+#'  "passion [Title/Abstract]",
+#'  "AND Dualistic Model of Passion [Text Word]",
+#'   "AND ('2023/01/01' [Date - Publication] : '2023/12/31' [Date - Publication])"
+#' )
+#'
 #' d.fls <- batch_pubmed_download2(
-#'   pubmed_query_string = paste(
-#'     "passion [Title/Abstract]",
-#'     "AND Dualistic Model of Passion [Text Word]",
-#'     "AND ('2023/01/01' [Date - Publication] : '2023/12/31' [Date - Publication])"
-#'   ),
+#'   pubmed_query_string = pubmed_query_string,
 #'   year_low = 2023,
-#'   year_high = 2023
+#'   year_high = 2023,
+#'   data_folder = ""
 #' )
 #' articles.df <- all_articles_to_df(d.fls)
 #' articles.df2 <- add_affiliation(articles.df)
 #' articles.df2[5, ]
-#' \dontshow{
-#' setwd(.old_wd)
 #' }
+#' \dontshow{
+#' unlink("easyPubMed_data_01.txt")
+#' setwd(.old_wd)
 #' }
 #' @export
 
