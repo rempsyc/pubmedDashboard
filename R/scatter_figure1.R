@@ -1,6 +1,7 @@
 #' @title Generate table of journal paper percentages, by continent and year
 #' @param data The processed dataframe of data
 #' @param method Which method to use for the regression line, either "lm" (default) or "loess".
+#' @param original If `TRUE`, attempts to mimic Arnett's (2008) Figure 1 in style.
 #' @examples
 #' \dontshow{
 #' .old_wd <- setwd(tempdir())
@@ -41,7 +42,7 @@ scatter_figure1 <- function(data, method = "lm", original = TRUE) {
   df_us_journal_year <- data %>%
     dplyr::filter(
       !is.na(.data$country),
-      country_code == "US"
+      .data$country_code == "US"
     ) %>%
     dplyr::group_by(.data$year, .data$journal) %>%
     dplyr::count(name = "n_us") %>%
@@ -109,7 +110,7 @@ scatter_figure1 <- function(data, method = "lm", original = TRUE) {
       }
     }
   } else {
-    fig1 <- nice_scatter(
+    fig1 <- rempsyc::nice_scatter(
       XData,
       predictor = "year",
       response = "percentage_american",

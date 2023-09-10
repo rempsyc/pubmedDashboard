@@ -18,6 +18,7 @@
 #'   year_high = 2023
 #' )
 #' data <- read_bind_all_data()
+#' data[1, c(4, 6)] <- NA
 #' table_missing_country(data)
 #' }
 #' \dontshow{

@@ -10,6 +10,8 @@ scatter_figure1(data, method = "lm", original = TRUE)
 \item{data}{The processed dataframe of data}
 
 \item{method}{Which method to use for the regression line, either "lm" (default) or "loess".}
+
+\item{original}{If \code{TRUE}, attempts to mimic Arnett's (2008) Figure 1 in style.}
 }
 \description{
 Generate table of journal paper percentages, by continent and year
