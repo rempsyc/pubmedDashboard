@@ -34,6 +34,9 @@
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/batch_pubmed_download2.html</loc>
   </url>
   <url>
+    <loc>https://rempsyc.github.io/pubmedDashboard/reference/check_pubmed_api_token.html</loc>
+  </url>
+  <url>
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/clean_journals_continents.html</loc>
   </url>
   <url>
@@ -77,6 +80,9 @@
   </url>
   <url>
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/waffle_flags.html</loc>
+  </url>
+  <url>
+    <loc>https://rempsyc.github.io/pubmedDashboard/reference/waffle_journal_continent.html</loc>
   </url>
   <url>
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/world_capitals.html</loc>
