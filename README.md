@@ -5,10 +5,10 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/rempsyc/rempsyc/workflows/R-CMD-check/badge.svg)](https://github.com/rempsyc/rempsyc/actions)
+[![R-CMD-check](https://github.com/rempsyc/pubmedDashboard/workflows/R-CMD-check/badge.svg)](https://github.com/rempsyc/pubmedDashboard/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/pubmedDashboard)](https://CRAN.R-project.org/package=pubmedDashboard)
-[![Last-commit](https://img.shields.io/github/last-commit/rempsyc/rempsyc)](https://github.com/rempsyc/rempsyc/commits/main)
+[![Last-commit](https://img.shields.io/github/last-commit/rempsyc/pubmedDashboard)](https://github.com/rempsyc/pubmedDashboard/commits/main)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![sponsors](https://img.shields.io/github/sponsors/rempsyc)](https://github.com/sponsors/rempsyc)
