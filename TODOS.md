@@ -1,2 +1,1 @@
-- Add more functions (figures, tables, etc.)
-- Add `dygraph_country_year` function?
+- Move feature packages from import to suggests?
