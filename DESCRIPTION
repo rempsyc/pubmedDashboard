@@ -26,7 +26,9 @@ Imports:
     waffle,
     tidyr,
     plotly,
-    RColorBrewer
+    RColorBrewer,
+    dygraphs,
+    xts
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

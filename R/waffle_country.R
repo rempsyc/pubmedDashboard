@@ -20,6 +20,7 @@
 #' }
 #' \dontshow{
 #' unlink("easyPubMed_data_01.txt")
+#' unlink("articles_2023_2023.rds")
 #' setwd(.old_wd)
 #' }
 #' @importFrom rlang .data
