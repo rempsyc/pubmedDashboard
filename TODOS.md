@@ -1,1 +1,2 @@
 - Move feature packages from import to suggests?
+- Some functions don't work when number of rows don't match. For those functions, add a warning and then manually fix the number of rows so they can be matched without error.

@@ -31,7 +31,7 @@ economics <- c(
 general <- c(
   "Nature Human Behaviour",
   "PLOS One",
-  "Science",
+  "Science (New York, N.Y.)",
   "Nature"
 )
 
