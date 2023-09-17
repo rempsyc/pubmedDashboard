@@ -1,5 +1,2 @@
 - Move feature packages from import to suggests to reduce hard dependencies like in other packages?
-- Some functions don't work when number of rows don't match. For those functions, add a warning and then manually fix the number of rows so they can be matched without error. List of problematic functions:
-  - `table_continent_year()`
-  - `table_continent_journal()`
 - Improve SPEED (!!!!) of processing for `save_process_pubmed_batch()` steps 2 to 5.

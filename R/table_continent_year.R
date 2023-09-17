@@ -35,16 +35,16 @@ table_continent_year <- function(data, datatable = TRUE) {
 
   x <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
-    # dplyr::filter(!is.na(.data$continent)) %>%
+    dplyr::filter(!is.na(.data$continent)) %>%
     dplyr::group_by(.data$year) %>%
     dplyr::summarize(
       Papers = dplyr::n(),
-      `North America` = sum(.data$continent == "Northern America", na.rm = TRUE) / dplyr::n(),
-      Europe = sum(.data$continent == "Europe", na.rm = TRUE) / dplyr::n(),
-      Asia = sum(.data$continent == "Asia", na.rm = TRUE) / dplyr::n(),
-      Oceania = sum(.data$continent == "Oceania", na.rm = TRUE) / dplyr::n(),
-      `Latin America` = sum(.data$continent == "Latin America and the Caribbean", na.rm = TRUE) / dplyr::n(),
-      Africa = sum(.data$continent == "Africa", na.rm = TRUE) / dplyr::n(),
+      `North America` = sum(.data$continent == "Northern America") / dplyr::n(),
+      Europe = sum(.data$continent == "Europe") / dplyr::n(),
+      Asia = sum(.data$continent == "Asia") / dplyr::n(),
+      Oceania = sum(.data$continent == "Oceania") / dplyr::n(),
+      `Latin America` = sum(.data$continent == "Latin America and the Caribbean") / dplyr::n(),
+      Africa = sum(.data$continent == "Africa") / dplyr::n(),
       `Missing*` = dplyr::first(missing),
     )
 
@@ -57,7 +57,7 @@ table_continent_year <- function(data, datatable = TRUE) {
 
   x <- x %>%
     dplyr::mutate(
-      `Missing*` = continent_paper_missing, # [-1]
+      `Missing*` = continent_paper_missing,
       dplyr::across("North America":"Missing*", ~ round(.x * 100, 2))
     ) %>%
     dplyr::arrange(dplyr::desc(.data$year)) %>%
