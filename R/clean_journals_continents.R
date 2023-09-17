@@ -7,7 +7,9 @@ clean_journals_continents <- function(data) {
       continent = factor(.data$continent, levels = continent_order()),
       journal = gsub(":.*", "", .data$journal),
       journal = tools::toTitleCase(.data$journal),
-      journal = trimws(.data$journal)
+      journal = trimws(.data$journal),
+      field = journal_field$field[match(.data$journal, journal_field$journal)],
+      original_journal = .data$journal %in% journal_field$journal[1:6]
     )
 }
 
