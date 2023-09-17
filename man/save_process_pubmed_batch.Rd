@@ -6,8 +6,9 @@
 \usage{
 save_process_pubmed_batch(
   pubmed_query_string,
-  year_low,
-  year_high,
+  journal = "",
+  year_low = 2023,
+  year_high = 2023,
   data_folder = "data",
   batch_size = 5000,
   api_key = NULL,
@@ -16,6 +17,8 @@ save_process_pubmed_batch(
 }
 \arguments{
 \item{pubmed_query_string}{The PubMed query string.}
+
+\item{journal}{The list of desired journals.}
 
 \item{year_low}{The year the data should start.}
 

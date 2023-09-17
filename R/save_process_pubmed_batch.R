@@ -1,5 +1,6 @@
 #' @title Mega function to process and save PubMed data
 #' @param pubmed_query_string The PubMed query string.
+#' @param journal The list of desired journals.
 #' @param year_low The year the data should start.
 #' @param year_high The year the data should end.
 #' @param data_folder Where to save the data.
@@ -28,25 +29,40 @@
 #' }
 #' @export
 save_process_pubmed_batch <- function(pubmed_query_string,
-                                      year_low,
-                                      year_high,
+                                      journal = NULL,
+                                      year_low = 2023,
+                                      year_high = 2023,
                                       data_folder = "data",
                                       batch_size = 5000,
                                       api_key = NULL,
                                       verbose = TRUE) {
+  if (is.null(journal)) {
+    journal <- ""
+  } else {
+    journal <- paste0(
+      "OR ", journal, " [Journal]",
+      collapse = " "
+    )
+    journal <- paste("", journal)
+  }
+
+  pubmed_query_string = paste0(
+    pubmed_query_string,
+    journal,
+    paste0(
+      " AND ('", year_low, "/01/01' [Date - Publication] : '",
+      year_high, "/12/31' [Date - Publication])"
+    )
+  )
+
   if (verbose) {
-    cat("1/5 - Downloading PubMed data...\n")
+    cat(paste("pubmed_query_string =\n", pubmed_query_string), "\n",
+        "1/5 - Downloading PubMed data...\n")
   }
 
   # Download data
   d.fls <- batch_pubmed_download2(
-    pubmed_query_string = paste(
-      pubmed_query_string,
-      paste0(
-        "AND ('", year_low, "/01/01' [Date - Publication] : '",
-        year_high, "/12/31' [Date - Publication])"
-      )
-    ),
+    pubmed_query_string = pubmed_query_string,
     year_low = year_low,
     year_high = year_high,
     data_folder = data_folder

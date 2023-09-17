@@ -26,11 +26,17 @@
 #' }
 #' @export
 all_articles_to_df <- function(d.fls) {
-  lapply(seq_along(d.fls), function(x) {
+  data <- lapply(seq_along(d.fls), function(x) {
     list.articles <- easyPubMed::articles_to_list(d.fls[[x]])
     list.articles.df <- lapply(list.articles, article_to_df2)
   }) %>%
-    dplyr::bind_rows() %>%
-    dplyr::distinct(.data$pmid, .keep_all = TRUE) %>%
-    dplyr::mutate(address = convert_hex_to_char(.data$address))
+    dplyr::bind_rows()
+  if (nrow(data) == 0) {
+    stop("Insufficient papers found. Please review the PubMed query string.")
+  } else {
+    data <- data %>%
+      dplyr::distinct(.data$pmid, .keep_all = TRUE) %>%
+      dplyr::mutate(address = convert_hex_to_char(.data$address))
+  }
+  data
 }
