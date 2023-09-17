@@ -3,4 +3,3 @@
   - `table_continent_year()`
   - `table_continent_journal()`
 - Improve SPEED (!!!!) of processing for `save_process_pubmed_batch()` steps 2 to 5.
-- Fix bug `Error in 'dplyr::distinct()': ! Must use existing variables. ✖ 'pmid' not found in '.data'.`

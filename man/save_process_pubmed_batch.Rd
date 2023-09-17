@@ -6,7 +6,7 @@
 \usage{
 save_process_pubmed_batch(
   pubmed_query_string,
-  journal = "",
+  journal = NULL,
   year_low = 2023,
   year_high = 2023,
   data_folder = "data",

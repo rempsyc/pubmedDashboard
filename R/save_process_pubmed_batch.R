@@ -28,7 +28,7 @@
 #' setwd(.old_wd)
 #' }
 #' @export
-save_process_pubmed_batch <- function(pubmed_query_string,
+save_process_pubmed_batch <- function(pubmed_query_string = "",
                                       journal = NULL,
                                       year_low = 2023,
                                       year_high = 2023,
@@ -43,7 +43,7 @@ save_process_pubmed_batch <- function(pubmed_query_string,
       "OR ", journal, " [Journal]",
       collapse = " "
     )
-    journal <- paste("", journal)
+    journal <- sub("OR", "", journal)
   }
 
   pubmed_query_string = paste0(
