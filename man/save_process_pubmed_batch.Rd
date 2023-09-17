@@ -5,7 +5,7 @@
 \title{Mega function to process and save PubMed data}
 \usage{
 save_process_pubmed_batch(
-  pubmed_query_string,
+  pubmed_query_string = "",
   journal = NULL,
   year_low = 2023,
   year_high = 2023,
