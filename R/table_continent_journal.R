@@ -62,8 +62,9 @@ table_continent_journal <- function(data, datatable = TRUE) {
     dplyr::rename_with(stringr::str_to_title)
 
   if (isTRUE(datatable)) {
-    x <- DT::datatable(x,
-      options = list(searching = FALSE, paging = FALSE),
+    x <- DT::datatable(
+      x,
+      options = list(iDisplayLength = 5),
       caption = "Journal paper percentages, by continent and journal"
     )
   }

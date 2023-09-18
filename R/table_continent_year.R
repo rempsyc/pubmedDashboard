@@ -65,7 +65,6 @@ table_continent_year <- function(data, datatable = TRUE) {
 
   if (isTRUE(datatable)) {
     x <- DT::datatable(x,
-      options = list(searching = FALSE, paging = FALSE),
       caption = "Journal paper percentages, by continent and year"
     )
   }

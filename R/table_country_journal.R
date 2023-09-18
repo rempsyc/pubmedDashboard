@@ -60,7 +60,6 @@ table_country_journal <- function(data, datatable = TRUE) {
 
   if (isTRUE(datatable)) {
     x <- DT::datatable(x,
-      options = list(searching = FALSE, paging = FALSE),
       caption = "Journal paper percentages, by country and journal"
     )
   }
