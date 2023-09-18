@@ -63,7 +63,7 @@ scatter_country_year <- function(data, method = "lm") {
       response = "percentage",
       group = "country",
       colours = colours.country2,
-      method = "lm",
+      method = method,
       groups.order = "decreasing",
       ytitle = "% of All Papers"
     ) %>%
