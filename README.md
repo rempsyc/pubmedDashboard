@@ -73,7 +73,7 @@ save_process_pubmed_batch(
 )
 #> pubmed_query_string =
 #>  passion [Title/Abstract] Journal of Personality and Social Psychology [Journal] AND 
-('2020/01/01' [Date - Publication] : '2030/12/31' [Date - Publication]) 
+#>  ('2020/01/01' [Date - Publication] : '2030/12/31' [Date - Publication]) 
 #>  1/5 - Downloading PubMed data...
 #> [1] "PubMed data batch 1 / 1 downloaded..."
 #> 2/5 - Converting XLM files to dataframe...
