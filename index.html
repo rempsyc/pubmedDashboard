@@ -112,24 +112,23 @@
 </h2>
 <p>One simple function allows to download the paper data from PubMed, convert the XLM data to a dataframe, extract affiliations, match universities to countries, identify countries and continents, and save the file to disk for later reuse.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">pubmed_query_string</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span></span>
-<span>  <span class="st">"passion [Title/Abstract]"</span>,</span>
-<span>  <span class="st">"AND Dualistic Model of Passion [Text Word]"</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/save_process_pubmed_batch.html">save_process_pubmed_batch</a></span><span class="op">(</span></span>
-<span>  <span class="va">pubmed_query_string</span>,</span>
-<span>  year_low <span class="op">=</span> <span class="fl">2023</span>,</span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/save_process_pubmed_batch.html">save_process_pubmed_batch</a></span><span class="op">(</span></span>
+<span>  pubmed_query_string <span class="op">=</span> <span class="st">"passion [Title/Abstract]"</span>,</span>
+<span>  journal <span class="op">=</span> <span class="st">"Journal of Personality and Social Psychology"</span>,</span>
+<span>  year_low <span class="op">=</span> <span class="fl">2020</span>,</span>
 <span>  year_high <span class="op">=</span> <span class="fl">2030</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1/5 - Downloading PubMed data...</span></span>
+<span><span class="co">#&gt; pubmed_query_string =</span></span>
+<span><span class="co">#&gt;  passion [Title/Abstract] Journal of Personality and Social Psychology [Journal] AND </span></span>
+<span><span class="co">#&gt;  ('2020/01/01' [Date - Publication] : '2030/12/31' [Date - Publication]) </span></span>
+<span><span class="co">#&gt;  1/5 - Downloading PubMed data...</span></span>
 <span><span class="co">#&gt; [1] "PubMed data batch 1 / 1 downloaded..."</span></span>
 <span><span class="co">#&gt; 2/5 - Converting XLM files to dataframe...</span></span>
 <span><span class="co">#&gt; 3/5 - Extracting affiliations...</span></span>
 <span><span class="co">#&gt; 4/5 - Matching universities to countries...</span></span>
 <span><span class="co">#&gt; 5/5 - Identifying countries and continents...</span></span>
 <span><span class="co">#&gt; Operation sucessfully completed. Congratulations! </span></span>
-<span><span class="co">#&gt; File saved in data/articles_2023_2030.rds</span></span></code></pre></div>
+<span><span class="co">#&gt; File saved in data/articles_2020_2030.rds</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="table-formatting-functions">Table formatting functions<a class="anchor" aria-label="anchor" href="#table-formatting-functions"></a>
@@ -194,6 +193,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/rempsyc/pubmedDashboard/actions" class="external-link"><img src="https://github.com/rempsyc/pubmedDashboard/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://rempsyc.r-universe.dev/ui/#package:pubmedDashboard" class="external-link"><img src="https://rempsyc.r-universe.dev/badges/pubmedDashboard" alt="r-universe"></a></li>
 <li><a href="https://CRAN.R-project.org/package=pubmedDashboard" class="external-link"><img src="https://www.r-pkg.org/badges/version/pubmedDashboard" alt="CRAN status"></a></li>
 <li><a href="https://github.com/rempsyc/pubmedDashboard/commits/main" class="external-link"><img src="https://img.shields.io/github/last-commit/rempsyc/pubmedDashboard" alt="Last-commit"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
