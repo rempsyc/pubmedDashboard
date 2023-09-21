@@ -6,6 +6,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/rempsyc/pubmedDashboard/workflows/R-CMD-check/badge.svg)](https://github.com/rempsyc/pubmedDashboard/actions)
+[![r-universe](https://rempsyc.r-universe.dev/badges/pubmedDashboard)](https://rempsyc.r-universe.dev/ui/#package:pubmedDashboard)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/pubmedDashboard)](https://CRAN.R-project.org/package=pubmedDashboard)
 [![Last-commit](https://img.shields.io/github/last-commit/rempsyc/pubmedDashboard)](https://github.com/rempsyc/pubmedDashboard/commits/main)
@@ -64,24 +65,23 @@ universities to countries, identify countries and continents, and save
 the file to disk for later reuse.
 
 ``` r
-pubmed_query_string <- paste(
-  "passion [Title/Abstract]",
-  "AND Dualistic Model of Passion [Text Word]"
-)
-
 save_process_pubmed_batch(
-  pubmed_query_string,
-  year_low = 2023,
+  pubmed_query_string = "passion [Title/Abstract]",
+  journal = "Journal of Personality and Social Psychology",
+  year_low = 2020,
   year_high = 2030
 )
-#> 1/5 - Downloading PubMed data...
+#> pubmed_query_string =
+#>  passion [Title/Abstract] Journal of Personality and Social Psychology [Journal] AND 
+('2020/01/01' [Date - Publication] : '2030/12/31' [Date - Publication]) 
+#>  1/5 - Downloading PubMed data...
 #> [1] "PubMed data batch 1 / 1 downloaded..."
 #> 2/5 - Converting XLM files to dataframe...
 #> 3/5 - Extracting affiliations...
 #> 4/5 - Matching universities to countries...
 #> 5/5 - Identifying countries and continents...
 #> Operation sucessfully completed. Congratulations! 
-#> File saved in data/articles_2023_2030.rds
+#> File saved in data/articles_2020_2030.rds
 ```
 
 ## Table formatting functions

@@ -32,7 +32,7 @@ all_articles_to_df <- function(d.fls) {
   }) %>%
     dplyr::bind_rows()
   if (nrow(data) == 0) {
-    stop("Insufficient papers found. Please review the PubMed query string.")
+    message("Insufficient papers found. Please review the PubMed query string or year(s).")
   } else {
     data <- data %>%
       dplyr::distinct(.data$pmid, .keep_all = TRUE) %>%

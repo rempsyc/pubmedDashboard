@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/rempsyc/pubmedDashboard/workflows/R-CMD-check/badge.svg)](https://github.com/rempsyc/pubmedDashboard/actions)
+[![r-universe](https://rempsyc.r-universe.dev/badges/pubmedDashboard)](https://rempsyc.r-universe.dev/ui/#package:pubmedDashboard)
 [![CRAN status](https://www.r-pkg.org/badges/version/pubmedDashboard)](https://CRAN.R-project.org/package=pubmedDashboard)
 [![Last-commit](https://img.shields.io/github/last-commit/rempsyc/pubmedDashboard)](https://github.com/rempsyc/pubmedDashboard/commits/main)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
@@ -62,14 +63,10 @@ get_country(address)
 One simple function allows to download the paper data from PubMed, convert the XLM data to a dataframe, extract affiliations, match universities to countries, identify countries and continents, and save the file to disk for later reuse.
 
 ```{r example, warning=FALSE}
-pubmed_query_string <- paste(
-  "passion [Title/Abstract]",
-  "AND Dualistic Model of Passion [Text Word]"
-)
-
 save_process_pubmed_batch(
-  pubmed_query_string,
-  year_low = 2023,
+  pubmed_query_string = "passion [Title/Abstract]",
+  journal = "Journal of Personality and Social Psychology",
+  year_low = 2020,
   year_high = 2030
 )
 ```

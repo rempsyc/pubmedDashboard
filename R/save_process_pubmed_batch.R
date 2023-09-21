@@ -44,6 +44,9 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
       collapse = " "
     )
     journal <- sub("OR", "", journal)
+    if (is.null(journal)) {
+      journal <- paste("AND", journal)
+    }
   }
 
   pubmed_query_string = paste0(
@@ -76,6 +79,11 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
   # articles.df <- table_articles_byAuth(d.fls, included_authors = "first")
   articles.df <- all_articles_to_df(d.fls)
 
+  if (nrow(articles.df) == 0) {
+    message("all_articles_to_df() found no result. Returning empty data frame.")
+    return(articles.df)
+  }
+
   if (verbose) {
     cat("3/5 - Extracting affiliations...\n")
   }
@@ -104,7 +112,7 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
 
   if (verbose) {
     cat(
-      "Operation sucessfully completed. Congratulations!",
+      "Operation successfully completed. Congratulations!",
       "\nFile saved in", paste0(data_folder, "/articles_", year_low, "_", year_high, ".rds"), "\n"
     )
   }
