@@ -8,8 +8,9 @@ clean_journals_continents <- function(data) {
       journal = gsub(":.*", "", .data$journal),
       journal = tools::toTitleCase(.data$journal),
       journal = trimws(.data$journal),
-      field = journal_field$field[match(.data$journal, journal_field$journal)],
-      original_journal = .data$journal %in% journal_field$journal[1:6]
+      field = pubmedDashboard::journal_field$field[match(
+        .data$journal, pubmedDashboard::journal_field$journal)],
+      original_journal = .data$journal %in% pubmedDashboard::journal_field$journal[1:6]
     )
 }
 

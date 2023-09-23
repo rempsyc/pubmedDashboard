@@ -86,6 +86,8 @@ table_continent(data)
 
 ![](man/figures/table_journal_continent.png)
 
+## Figure formatting functions
+
 ```{r waffle_country, warning=FALSE, message=FALSE}
 waffle_country(data)
 ```

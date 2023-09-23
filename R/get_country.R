@@ -36,7 +36,7 @@ get_country <- function(address) {
 }
 
 get_country_internal <- function(address) {
-  if (nchar(address) > 9983) {
+  if (!is.na(address) && nchar(address) > 9983) {
     address <- substr(address, start = 1, stop = 9983)
   }
   # Get country from countrycode
