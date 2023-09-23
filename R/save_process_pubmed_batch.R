@@ -113,7 +113,7 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
   if (verbose) {
     cat(
       "Operation successfully completed. Congratulations!", print_time(),
-      "File saved in", paste0(data_folder, "/articles_", year_low, "_", year_high, ".rds")
+      "File saved in", paste0(data_folder, "/articles_", year_low, "_", year_high, ".rds\n")
     )
   }
 }
