@@ -72,16 +72,15 @@ save_process_pubmed_batch(
   year_high = 2030
 )
 #> pubmed_query_string =
-#>  passion [Title/Abstract] Journal of Personality and Social Psychology [Journal] AND 
-#>  ('2020/01/01' [Date - Publication] : '2030/12/31' [Date - Publication]) 
-#>  1/5 - Downloading PubMed data...
+#>  passion [Title/Abstract] Journal of Personality and Social Psychology [Journal] AND ('2020/01/01' [Date - Publication] : '2030/12/31' [Date - Publication]) 
+#>  1/5 - Downloading PubMed data... [1:06:15 PM]
 #> [1] "PubMed data batch 1 / 1 downloaded..."
-#> 2/5 - Converting XLM files to dataframe...
-#> 3/5 - Extracting affiliations...
-#> 4/5 - Matching universities to countries...
-#> 5/5 - Identifying countries and continents...
-#> Operation successfully completed. Congratulations! 
-#> File saved in data/articles_2020_2030.rds
+#> 2/5 - Converting XLM files to dataframe... [1:06:17 PM]
+#> 3/5 - Extracting affiliations... [1:06:17 PM]
+#> 4/5 - Matching universities to countries... [1:06:17 PM]
+#> 5/5 - Identifying countries and continents... [1:06:18 PM]
+#> Operation successfully completed. Congratulations! [1:06:19 PM]
+#>  File saved in data/articles_2020_2030.rds
 ```
 
 ## Table formatting functions
@@ -98,6 +97,8 @@ table_continent(data)
 ```
 
 ![](man/figures/table_journal_continent.png)
+
+## Figure formatting functions
 
 ``` r
 waffle_country(data)
