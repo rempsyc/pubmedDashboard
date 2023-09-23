@@ -60,7 +60,7 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
 
   if (verbose) {
     cat(paste("pubmed_query_string =\n", pubmed_query_string), "\n",
-        "1/5 - Downloading PubMed data...\n")
+        "1/5 - Downloading PubMed data...", print_time())
   }
 
   # Download data
@@ -72,7 +72,7 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
   )
 
   if (verbose) {
-    cat("2/5 - Converting XLM files to dataframe...\n")
+    cat("2/5 - Converting XLM files to dataframe...", print_time())
   }
 
   # Convert XLM data to a data frame of first authors
@@ -85,14 +85,14 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
   }
 
   if (verbose) {
-    cat("3/5 - Extracting affiliations...\n")
+    cat("3/5 - Extracting affiliations...", print_time())
   }
 
   # Split address in university and department
   articles.df2 <- add_affiliation(articles.df)
 
   if (verbose) {
-    cat("4/5 - Matching universities to countries...\n")
+    cat("4/5 - Matching universities to countries...", print_time())
   }
 
   # Match universities and countries
@@ -102,7 +102,7 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
   #   filter(!name %in% c("Ins", "Institut", "U"))
 
   if (verbose) {
-    cat("5/5 - Identifying countries and continents...\n")
+    cat("5/5 - Identifying countries and continents...", print_time())
   }
 
   # Get full name country, continent, and region
@@ -112,8 +112,13 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
 
   if (verbose) {
     cat(
-      "Operation successfully completed. Congratulations!",
-      "\nFile saved in", paste0(data_folder, "/articles_", year_low, "_", year_high, ".rds"), "\n"
+      "Operation successfully completed. Congratulations!", print_time(),
+      "File saved in", paste0(data_folder, "/articles_", year_low, "_", year_high, ".rds")
     )
   }
 }
+
+print_time <- function() {
+  paste0("[", format(Sys.time(), "%X"), "]", "\n")
+}
+
