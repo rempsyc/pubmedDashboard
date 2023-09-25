@@ -1,36 +1,36 @@
 ## code to prepare `journal_field` dataset goes here
 
 psychology <- c(
-  "Developmental Psychology",
-  "Journal of Personality and Social Psychology",
-  "Journal of Abnormal Psychology",
-  "Journal of Family Psychology",
-  "Health Psychology",
-  "Journal of Educational Psychology",
+  "Developmental psychology",
+  "Journal of personality and social psychology",
+  "Journal of abnormal psychology",
+  "Journal of family psychology : JFP : journal of the Division of Family Psychology of the American Psychological Association (Division 43)",
+  "Health psychology : official journal of the Division of Health Psychology, American Psychological Association",
+  "Journal of educational psychology",
   # Above journals are the original
-  "Journal of Experimental Social Psychology",
+  "Journal of experimental social psychology",
   "Collabra. Psychology",
-  "Journal of Experimental Psychology. General",
-  "The Journal of Applied Psychology",
-  "Psychological Methods",
-  "Advances in Methods and Practices in Psychological Science",
-  "Psychological Science"
+  "Journal of experimental psychology. General",
+  "The Journal of applied psychology",
+  "Psychological methods",
+  "Advances in methods and practices in psychological science",
+  "Psychological science"
 )
 
 economics <- c(
-  "Journal of Economic Psychology",
-  "Journal of Experimental and Behavioral Economics",
-  "Experimental Economics",
-  "Journal of Development Economics",
-  "World Development",
-  "Quarterly Journal of Economics",
-  "Econometrica",
-  "Behavioral Public Policy"
+  "Journal Of Economic Psychology",
+  "Journal of experimental and behavioral economics",
+  "Experimental economics",
+  "Journal of development economics",
+  "World development",
+  "Quarterly journal of economics",
+  "Econometrica : journal of the Econometric Society",
+  "Behavioral public policy"
 )
 
 general <- c(
-  "Nature Human Behaviour",
-  "PLOS One",
+  "Nature human behaviour",
+  "Plos one",
   "Science (New York, N.Y.)",
   "Nature"
 )

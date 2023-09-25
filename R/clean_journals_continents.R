@@ -4,13 +4,13 @@
 clean_journals_continents <- function(data) {
   data <- data %>%
     dplyr::mutate(
+      field = pubmedDashboard::journal_field$field[match(
+        .data$journal, pubmedDashboard::journal_field$journal)],
+      original_journal = .data$journal %in% pubmedDashboard::journal_field$journal[1:6],
       continent = factor(.data$continent, levels = continent_order()),
       journal = gsub(":.*", "", .data$journal),
       journal = tools::toTitleCase(.data$journal),
       journal = trimws(.data$journal),
-      field = pubmedDashboard::journal_field$field[match(
-        .data$journal, pubmedDashboard::journal_field$journal)],
-      original_journal = .data$journal %in% pubmedDashboard::journal_field$journal[1:6]
     )
 }
 
