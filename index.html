@@ -119,16 +119,15 @@
 <span>  year_high <span class="op">=</span> <span class="fl">2030</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; pubmed_query_string =</span></span>
-<span><span class="co">#&gt;  passion [Title/Abstract] Journal of Personality and Social Psychology [Journal] AND </span></span>
-<span><span class="co">#&gt;  ('2020/01/01' [Date - Publication] : '2030/12/31' [Date - Publication]) </span></span>
-<span><span class="co">#&gt;  1/5 - Downloading PubMed data...</span></span>
+<span><span class="co">#&gt;  passion [Title/Abstract] Journal of Personality and Social Psychology [Journal] AND ('2020/01/01' [Date - Publication] : '2030/12/31' [Date - Publication]) </span></span>
+<span><span class="co">#&gt;  1/5 - Downloading PubMed data... [1:06:15 PM]</span></span>
 <span><span class="co">#&gt; [1] "PubMed data batch 1 / 1 downloaded..."</span></span>
-<span><span class="co">#&gt; 2/5 - Converting XLM files to dataframe...</span></span>
-<span><span class="co">#&gt; 3/5 - Extracting affiliations...</span></span>
-<span><span class="co">#&gt; 4/5 - Matching universities to countries...</span></span>
-<span><span class="co">#&gt; 5/5 - Identifying countries and continents...</span></span>
-<span><span class="co">#&gt; Operation sucessfully completed. Congratulations! </span></span>
-<span><span class="co">#&gt; File saved in data/articles_2020_2030.rds</span></span></code></pre></div>
+<span><span class="co">#&gt; 2/5 - Converting XLM files to dataframe... [1:06:17 PM]</span></span>
+<span><span class="co">#&gt; 3/5 - Extracting affiliations... [1:06:17 PM]</span></span>
+<span><span class="co">#&gt; 4/5 - Matching universities to countries... [1:06:17 PM]</span></span>
+<span><span class="co">#&gt; 5/5 - Identifying countries and continents... [1:06:18 PM]</span></span>
+<span><span class="co">#&gt; Operation successfully completed. Congratulations! [1:06:19 PM]</span></span>
+<span><span class="co">#&gt;  File saved in data/articles_2020_2030.rds</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="table-formatting-functions">Table formatting functions<a class="anchor" aria-label="anchor" href="#table-formatting-functions"></a>
@@ -139,6 +138,10 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/table_continent.html">table_continent</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/table_journal_continent.png"></p>
+</div>
+<div class="section level2">
+<h2 id="figure-formatting-functions">Figure formatting functions<a class="anchor" aria-label="anchor" href="#figure-formatting-functions"></a>
+</h2>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/waffle_country.html">waffle_country</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-waffle_country-1.png" width="100%"></p>
