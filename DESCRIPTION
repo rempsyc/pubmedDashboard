@@ -39,4 +39,6 @@ LazyData: true
 URL: https://github.com/rempsyc/pubmedDashboard,
     https://rempsyc.github.io/pubmedDashboard/
 BugReports: https://github.com/rempsyc/pubmedDashboard/issues
-Remotes: jimjam-slam/ggflags
+Remotes: 
+  jimjam-slam/ggflags,
+  hrbrmstr/waffle
