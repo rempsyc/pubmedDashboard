@@ -9,6 +9,8 @@ save_process_pubmed_batch(
   journal = NULL,
   year_low = 2023,
   year_high = 2023,
+  month_low = "01",
+  month_high = 12,
   data_folder = "data",
   batch_size = 5000,
   api_key = NULL,

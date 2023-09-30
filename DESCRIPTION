@@ -23,7 +23,7 @@ Imports:
     ggplot2,
     ggflags (>= 0.0.3),
     DT,
-    waffle,
+    waffle (>= 1.0.1),
     tidyr,
     plotly,
     RColorBrewer,

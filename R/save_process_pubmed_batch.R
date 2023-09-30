@@ -32,6 +32,8 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
                                       journal = NULL,
                                       year_low = 2023,
                                       year_high = 2023,
+                                      month_low = "01",
+                                      month_high = 12,
                                       data_folder = "data",
                                       batch_size = 5000,
                                       api_key = NULL,
@@ -44,7 +46,7 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
       collapse = " "
     )
     journal <- sub("OR", "", journal)
-    if (!is.null(pubmed_query_string)) {
+    if (!missing(pubmed_query_string)) {
       journal <- paste0(" AND", journal)
     }
   }
@@ -53,8 +55,8 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
     pubmed_query_string,
     journal,
     paste0(
-      " AND ('", year_low, "/01/01' [Date - Publication] : '",
-      year_high, "/12/31' [Date - Publication])"
+      " AND ('", year_low, "/", month_low, "/01' [Date - Publication] : '",
+      year_high, "/", month_high, "/31' [Date - Publication])"
     )
   )
 
@@ -111,10 +113,21 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
   saveRDS(articles.df4, paste0(data_folder, "/articles_", year_low, "_", year_high, ".rds"))
 
   if (verbose) {
-    cat(
-      "Operation successfully completed. Congratulations!", print_time(),
-      "File saved in", paste0(data_folder, "/articles_", year_low, "_", year_high, ".rds\n\n")
-    )
+
+    start <- year_low
+    end <- year_high
+
+    if (!missing(year_low)) {
+      start <- paste0(start, "-", year_low)
+    }
+    if (!missing(month_high)) {
+      end <- paste0(end, "-", month_high)
+    }
+
+    success_message <- c("Operation successfully completed. Congratulations!", print_time(),
+    "File saved in", paste0(data_folder, "/articles_", start, "_", end, ".rds\n\n"))
+
+    cat(success_message)
   }
 }
 
