@@ -34,6 +34,8 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
                                       year_high = 2023,
                                       month_low = "01",
                                       month_high = 12,
+                                      day_low = "01",
+                                      day_high = 31,
                                       data_folder = "data",
                                       batch_size = 5000,
                                       api_key = NULL,
@@ -55,8 +57,8 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
     pubmed_query_string,
     journal,
     paste0(
-      " AND ('", year_low, "/", month_low, "/01' [Date - Publication] : '",
-      year_high, "/", month_high, "/31' [Date - Publication])"
+      " AND ('", year_low, "/", month_low, "/", day_low, " [Date - Publication] : '",
+      year_high, "/", month_high, "/", day_high, " [Date - Publication])"
     )
   )
 
@@ -122,6 +124,12 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
     }
     if (!missing(month_high)) {
       end <- paste0(end, "-", month_high)
+    }
+    if (!missing(day_low)) {
+      start <- paste0(start, "-", day_low)
+    }
+    if (!missing(day_high)) {
+      end <- paste0(end, "-", day_high)
     }
 
     success_message <- c("Operation successfully completed. Congratulations!", print_time(),
