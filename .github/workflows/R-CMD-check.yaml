@@ -38,9 +38,7 @@ jobs:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
-          extra-repositories:
-            - "https://jimjam-slam.r-universe.dev"
-            - "https://cinc.rud.is"
+          extra-repositories: "https://jimjam-slam.r-universe.dev", "https://cinc.rud.is"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
