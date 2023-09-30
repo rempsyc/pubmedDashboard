@@ -44,8 +44,8 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
       collapse = " "
     )
     journal <- sub("OR", "", journal)
-    if (is.null(journal)) {
-      journal <- paste("AND", journal)
+    if (!is.null(pubmed_query_string)) {
+      journal <- paste0(" AND", journal)
     }
   }
 

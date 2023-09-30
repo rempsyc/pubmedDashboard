@@ -67,20 +67,21 @@ the file to disk for later reuse.
 ``` r
 save_process_pubmed_batch(
   pubmed_query_string = "passion [Title/Abstract]",
-  journal = "Journal of Personality and Social Psychology",
-  year_low = 2020,
+  journal = c("Journal of Personality and Social Psychology", "Health Psychology"),
+  year_low = 2023,
   year_high = 2030
 )
 #> pubmed_query_string =
-#>  passion [Title/Abstract] Journal of Personality and Social Psychology [Journal] AND ('2020/01/01' [Date - Publication] : '2030/12/31' [Date - Publication]) 
-#>  1/5 - Downloading PubMed data... [1:06:15 PM]
+#>  passion [Title/Abstract] AND Journal of Personality and Social Psychology [Journal] OR 
+#>  Health Psychology [Journal] AND ('2023/01/01' [Date - Publication] : '2030/12/31' [Date - Publication]) 
+#>  1/5 - Downloading PubMed data... [10:34:20 AM]
 #> [1] "PubMed data batch 1 / 1 downloaded..."
-#> 2/5 - Converting XLM files to dataframe... [1:06:17 PM]
-#> 3/5 - Extracting affiliations... [1:06:17 PM]
-#> 4/5 - Matching universities to countries... [1:06:17 PM]
-#> 5/5 - Identifying countries and continents... [1:06:18 PM]
-#> Operation successfully completed. Congratulations! [1:06:19 PM]
-#>  File saved in data/articles_2020_2030.rds
+#> 2/5 - Converting XLM files to dataframe... [10:34:23 AM]
+#> 3/5 - Extracting affiliations... [10:34:40 AM]
+#> 4/5 - Matching universities to countries... [10:34:40 AM]
+#> 5/5 - Identifying countries and continents... [10:34:44 AM]
+#> Operation successfully completed. Congratulations! [10:34:59 AM]
+#>  File saved in data/articles_2023_2030.rds
 ```
 
 ## Table formatting functions

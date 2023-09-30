@@ -65,8 +65,8 @@ One simple function allows to download the paper data from PubMed, convert the X
 ```{r example, warning=FALSE}
 save_process_pubmed_batch(
   pubmed_query_string = "passion [Title/Abstract]",
-  journal = "Journal of Personality and Social Psychology",
-  year_low = 2020,
+  journal = c("Journal of Personality and Social Psychology", "Health Psychology"),
+  year_low = 2023,
   year_high = 2030
 )
 ```
