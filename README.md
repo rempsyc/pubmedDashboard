@@ -72,8 +72,9 @@ save_process_pubmed_batch(
   year_high = 2030
 )
 #> pubmed_query_string =
-#>  passion [Title/Abstract] AND Journal of Personality and Social Psychology [Journal] OR 
-#>  Health Psychology [Journal] AND ('2023/01/01' [Date - Publication] : '2030/12/31' [Date - Publication]) 
+#>  passion [Title/Abstract] AND Journal of Personality and Social Psychology [Journal] 
+#>  OR Health Psychology [Journal] AND ('2023/01/01' [Date - Publication] : '2030/12/31'
+#>  [Date - Publication]) 
 #>  1/5 - Downloading PubMed data... [10:34:20 AM]
 #> [1] "PubMed data batch 1 / 1 downloaded..."
 #> 2/5 - Converting XLM files to dataframe... [10:34:23 AM]
