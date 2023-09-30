@@ -27,7 +27,6 @@
 #' @importFrom ggplot2 layer
 #' @export
 waffle_country <- function(data) {
-  require(ggflags)
   . <- NULL
   x <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$country)) / dplyr::n()) %>%
