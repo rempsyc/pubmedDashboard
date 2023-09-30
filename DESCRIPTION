@@ -21,7 +21,7 @@ Imports:
     Ecfun, 
     lubridate,
     ggplot2,
-    ggflags,
+    ggflags (>= 0.0.3),
     DT,
     waffle,
     tidyr,
