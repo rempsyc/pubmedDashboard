@@ -31,13 +31,20 @@ economics <- c(
 general <- c(
   "Nature human behaviour",
   "Plos one",
-  "Science",
+  "Science (New York, N.Y.)",
   "Nature"
 )
 
 journal_field <- data.frame(
   journal = c(psychology, economics, general)
 )
+
+journal_field$journal_short <- clean_journal_names(journal_field$journal)
+# journal_field$journal_short <- gsub(":.*", "", journal_field$journal)
+# journal_field$journal_short <- gsub("[(].*", "", journal_field$journal_short)
+# journal_field$journal_short <- tools::toTitleCase(journal_field$journal_short)
+# journal_field$journal_short <- trimws(journal_field$journal_short)
+
 journal_field$field <- ifelse(
   journal_field$journal %in% psychology, "psychology", ifelse(
     journal_field$journal %in% economics, "economics", ifelse(

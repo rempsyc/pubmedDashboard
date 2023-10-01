@@ -8,9 +8,10 @@ clean_journals_continents <- function(data) {
         .data$journal, pubmedDashboard::journal_field$journal)],
       original_journal = .data$journal %in% pubmedDashboard::journal_field$journal[1:6],
       continent = factor(.data$continent, levels = continent_order()),
-      journal = gsub(":.*", "", .data$journal),
-      journal = tools::toTitleCase(.data$journal),
-      journal = trimws(.data$journal),
+      journal = clean_journal_names(.data$journal)
+      # journal = gsub(":.*", "", .data$journal),
+      # journal = tools::toTitleCase(.data$journal),
+      # journal = trimws(.data$journal),
     )
 }
 
@@ -22,4 +23,12 @@ continent_order <- function(short = FALSE) {
     x <- c("Northern America", "Europe", "Asia", "Oceania", "Latin America and the Caribbean", "Africa")
   }
   x
+}
+
+#' @noRd
+clean_journal_names <- function(journal) {
+  x <- gsub(":.*", "", journal)
+  x <- gsub("[(].*", "", x)
+  x <- tools::toTitleCase(x)
+  trimws(x)
 }
