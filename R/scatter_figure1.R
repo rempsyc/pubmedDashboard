@@ -62,7 +62,8 @@ scatter_figure1 <- function(data, method = "lm", original = TRUE) {
       ),
       journal = factor(.data$journal, levels = journal.order)
     ) %>%
-    dplyr::ungroup()
+    dplyr::ungroup() %>%
+    filter(!is.na(.data$journal))
 
   df_us_journal_year_temp <- df_us_journal_year %>%
     dplyr::group_by(.data$year) %>%

@@ -31,6 +31,7 @@ table_continent_year <- function(data, datatable = TRUE) {
   continent_paper_missing <- data %>%
     dplyr::group_by(.data$year) %>%
     dplyr::summarize(Missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
+    dplyr::arrange(dplyr::desc(.data$year)) %>%
     dplyr::pull("Missing")
 
   x <- data %>%
