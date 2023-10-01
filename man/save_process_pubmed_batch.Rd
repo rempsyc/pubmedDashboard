@@ -28,6 +28,14 @@ save_process_pubmed_batch(
 
 \item{year_high}{The year the data should end.}
 
+\item{month_low}{The year the data should start.}
+
+\item{month_high}{The year the data should end.}
+
+\item{day_low}{The year the data should start.}
+
+\item{day_high}{The year the data should end.}
+
 \item{data_folder}{Where to save the data.}
 
 \item{batch_size}{The download batch size.}

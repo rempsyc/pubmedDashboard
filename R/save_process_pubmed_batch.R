@@ -3,6 +3,10 @@
 #' @param journal The list of desired journals.
 #' @param year_low The year the data should start.
 #' @param year_high The year the data should end.
+#' @param month_low The year the data should start.
+#' @param month_high The year the data should end.
+#' @param day_low The year the data should start.
+#' @param day_high The year the data should end.
 #' @param data_folder Where to save the data.
 #' @param batch_size The download batch size.
 #' @param api_key The api key for faster processing (optional).
