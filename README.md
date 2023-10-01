@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/rempsyc/pubmedDashboard/workflows/R-CMD-check/badge.svg)](https://github.com/rempsyc/pubmedDashboard/actions)
+[![R-CMD-check](https://github.com/rempsyc/pubmedDashboard/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rempsyc/pubmedDashboard/actions)
 [![r-universe](https://rempsyc.r-universe.dev/badges/pubmedDashboard)](https://rempsyc.r-universe.dev/ui/#package:pubmedDashboard)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/pubmedDashboard)](https://CRAN.R-project.org/package=pubmedDashboard)
