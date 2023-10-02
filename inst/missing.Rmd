@@ -1,0 +1,20 @@
+# Missing Data
+
+## Column 1 {data-width=700}
+
+### This table allows investigating why the country/university could not be identified
+
+```{r missing_universities, warning=FALSE}
+articles.df4 %>% 
+  # slice(1:(nrow(.) / 10)) %>% 
+  table_missing_country()
+
+```
+
+## Column 2
+
+### Important Note
+
+**This data table is too large to display online in full**
+
+Initially, this dashboard included every publication in which the country and continent could not be identified. However, after adding large journals (Nature, Science, and PLOS One), this table became too large to display within the dashboard, making the webpage sluggish and slow to load. Therefore, only 1/10 is preserved for now, until we start fixing the missing data by identifying universities and therefore reducing the overall size of the table. This should help speed up using the dashboard in other areas.

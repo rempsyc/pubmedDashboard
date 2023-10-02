@@ -51,11 +51,13 @@ table_continent_journal <- function(data, datatable = TRUE) {
   if (nrow(x) != length(journal_paper_missing)) {
     warning(
       "The last couple missing values in the Missing* column may be incorrect, ",
-      "as the number of rows does not match and were forced to fit.")
+      "as the number of rows does not match and were forced to fit."
+    )
     journal_paper_missing <- journal_paper_missing[seq_len(nrow(x))]
   }
 
-    x <- x %>% dplyr::mutate(
+  x <- x %>%
+    dplyr::mutate(
       `Missing*` = journal_paper_missing,
       dplyr::across("North America":"Missing*", ~ round(.x * 100, 2))
     ) %>%

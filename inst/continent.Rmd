@@ -1,0 +1,59 @@
+# Continent
+
+## Column 1 {data-width=2150}
+
+### Waffle plot of journal paper percentages, by continent (each square = 1% of data) {data-height=600}
+
+```{r get_historic_data}
+articles.df4 <- read_bind_all_data()
+
+```
+
+```{r clean_journals_continents}
+articles.df4 <- clean_journals_continents(articles.df4)
+
+saveRDS(articles.df4, "data/fulldata.rds")
+
+```
+
+```{r continent_waffle_overall}
+waffle_continent(articles.df4)
+
+```
+
+### Table of journal paper percentages, by continent {data-height=200}
+
+```{r, continent_table}
+table_continent(articles.df4)
+
+```
+
+## Column 2 {.tabset .tabset-fade}
+
+### Context
+
+**Representativity of First Authors in Psychology**
+
+A large proportion of first authors in psychology are located in North America or Europe, mostly in the US ([Thalmayer et al., 2021](https://psycnet.apa.org/doi/10.1037/amp0000622), [Arnett, 2008](https://doi.org/10.1037/0003-066x.63.7.602)). This dashboard presents some aggregated data by continent, country, year, and journal (for first authors only).
+
+This dashboard was created with the `pubmedDashboard` package in R (https://rempsyc.github.io/pubmedDashboard/) and specifically the very simple `render_dashboard()` function.
+
+> \* Percentages are calculated after excluding missing values. The *Missing* column shows the real percentage of missing values.
+
+### Method & Data
+
+The data from this report include information about publications from from some journals for some years. They include information about the articles (e.g., title, abstract) as well as on the authors, such as university of affiliation. These data were obtained from PubMed using the PubMed API through the `easyPubMed` package. The country of the first author of each paper was determined based on the affiliation address by matching the university name with a world university names database obtained from GitHub.
+
+> \* Percentages are calculated after excluding missing values. The *Missing* column shows the real percentage of missing values.
+
+### Missing data
+
+Some of the papers were missing address information; in many cases, the PubMed API provided only the department and no university. It was not possible to identify the country in these cases (one would need to look at the actual papers one by one to make manual corrections). Furthermore, some university names from the data did not match the university name database obtained from GitHub. In some cases, I have brought manual corrections to university names in an attempt to reduce the number of missing values.
+
+> \* Percentages are calculated after excluding missing values. The *Missing* column shows the real percentage of missing values.
+
+### Next Steps
+
+Possible future steps include: (a) obtaining a better, more current university name database (that includes country of university), (b) making manual corrections for other research institutes not included in the university database, (c) host DT tables on a server to speed up the website and allow the inclusion of a DT table for exploring the raw data, and (d) find a way to use country flags for the countries-by-journal figure.
+
+> \* Percentages are calculated after excluding missing values. The *Missing* column shows the real percentage of missing values.

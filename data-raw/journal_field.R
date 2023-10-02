@@ -48,8 +48,10 @@ journal_field$journal_short <- clean_journal_names(journal_field$journal)
 journal_field$field <- ifelse(
   journal_field$journal %in% psychology, "psychology", ifelse(
     journal_field$journal %in% economics, "economics", ifelse(
-      journal_field$journal %in% general, "general", NA)))
+      journal_field$journal %in% general, "general", NA
+    )
+  )
+)
 journal_field$original_journal <- journal_field$journal %in% psychology[1:6]
 
 usethis::use_data(journal_field, overwrite = TRUE)
-

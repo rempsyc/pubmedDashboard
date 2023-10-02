@@ -1,0 +1,10 @@
+# Figure 1
+
+## Column 1
+
+### Figure 1, Proportion of American First Authors 1987-Today
+
+```{r, fig1}
+scatter_figure1(articles.df4, original = TRUE)
+
+```

@@ -57,7 +57,7 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
     }
   }
 
-  pubmed_query_string = paste0(
+  pubmed_query_string <- paste0(
     pubmed_query_string,
     journal,
     paste0(
@@ -67,8 +67,10 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
   )
 
   if (verbose) {
-    cat(paste("pubmed_query_string =\n", pubmed_query_string), "\n",
-        "1/5 - Downloading PubMed data...", print_time())
+    cat(
+      paste("pubmed_query_string =\n", pubmed_query_string), "\n",
+      "1/5 - Downloading PubMed data...", print_time()
+    )
   }
 
   # Download data
@@ -119,7 +121,6 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
   saveRDS(articles.df4, paste0(data_folder, "/articles_", year_low, "_", year_high, ".rds"))
 
   if (verbose) {
-
     start <- year_low
     end <- year_high
 
@@ -136,8 +137,10 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
       end <- paste0(end, "-", day_high)
     }
 
-    success_message <- c("Operation successfully completed. Congratulations!", print_time(),
-    "File saved in", paste0(data_folder, "/articles_", start, "_", end, ".rds\n\n"))
+    success_message <- c(
+      "Operation successfully completed. Congratulations!", print_time(),
+      "File saved in", paste0(data_folder, "/articles_", start, "_", end, ".rds\n\n")
+    )
 
     cat(success_message)
   }
@@ -146,4 +149,3 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
 print_time <- function() {
   paste0("[", format(Sys.time(), "%X"), "]", "\n")
 }
-

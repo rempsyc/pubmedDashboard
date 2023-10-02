@@ -1,0 +1,25 @@
+# Economics
+
+## Column 1 {data-width=800}
+
+### Scatter plot of journal paper percentages, by continent and year {data-height=600}
+
+```{r, continent_scatter_overall_economics}
+articles.df4 %>% 
+  filter(field == "economics") %>% 
+  scatter_continent_year(method = "loess")
+
+```
+
+## Column 2
+
+### Table of journal paper percentages, by continent {data-height=200}
+
+```{r, continent_table_journal_year_economics}
+articles.df4 %>% 
+  filter(field == "economics") %>% 
+  table_continent_year()
+
+```
+
+> \* Percentages are calculated after excluding missing values. The *Missing* column shows the real percentage of missing values.
