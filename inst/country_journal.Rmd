@@ -1,0 +1,22 @@
+# Country, by Journal
+
+## Column 1 {data-width=800}
+
+### Waffle plot of journal paper percentages, by continent and journal (each square = 1% of data) {data-height=600}
+
+```{r country_table_journal_figure}
+
+waffle_country_journal(articles.df4)
+
+```
+
+## Column 2
+
+### Table of journal paper percentages, by country and journal {data-height=200}
+
+```{r country_table_journal2}
+table_country_journal(articles.df4)
+
+```
+
+> \* Percentages are calculated after excluding missing values. The *Missing* column shows the real percentage of missing values.

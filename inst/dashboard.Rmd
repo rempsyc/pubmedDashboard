@@ -1,0 +1,76 @@
+---
+title: "`r title`"
+author: "`r author`"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    social: menu
+    source_code: embed
+    # theme: lumen
+    storyboard: false
+---
+
+```{r packages}
+# Load packages
+library(pubmedDashboard)
+library(dplyr)
+library(ggflags)
+
+```
+
+```{r API_TOKEN_PUBMED, eval=exists("api_key"), include=FALSE}
+if(Sys.info()["sysname"] == "Windows") {
+  API_TOKEN_PUBMED <- keyring::key_get("pubmed", "rempsyc")  
+}
+
+check_pubmed_api_token(API_TOKEN_PUBMED)
+
+```
+
+```{r save_process_pubmed_batch, results='hide', eval=query_pubmed}
+save_process_pubmed_batch(
+  pubmed_query_string = pubmed_query_string,
+  journal = journal,
+  year_low = year_low,
+  year_high = year_high,
+  month_low = month_low,
+  month_high = month_high,
+  day_low = day_low,
+  day_high = day_high,
+  data_folder = data_folder,
+  batch_size = batch_size,
+  api_key = api_key,
+  verbose = verbose)
+
+```
+
+```{r continent_parent, child=c('continent.Rmd'), eval=tab_continent}
+```
+
+```{r continent_year_parent, child=c('continent_year.Rmd'), eval=tab_continent_year}
+```
+
+```{r continent_journal_parent, child=c('continent_journal.Rmd'), eval=tab_continent_journal}
+```
+
+```{r country_parent, child=c('country.Rmd'), eval=tab_country}
+```
+
+```{r country_journal_parent, child=c('country_journal.Rmd'), eval=tab_country_journal}
+```
+
+```{r psychology_parent, child=c('psychology.Rmd'), eval=tab_psychology}
+```
+
+```{r economics_parent, child=c('economics.Rmd'), eval=tab_economics}
+```
+
+```{r general_parent, child=c('general.Rmd'), eval=tab_general}
+```
+
+```{r figure1_parent, child=c('figure1.Rmd'), eval=tab_figure1}
+```
+
+```{r missing_parent, child=c('missing.Rmd'), eval=tab_missing}
+```

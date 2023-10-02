@@ -1,0 +1,21 @@
+# Country, by Year
+
+## Column 1 {data-width=1000}
+
+### Scatter plot of journal paper percentages, by country and year
+
+```{r, country_series_year}
+scatter_country_year(articles.df4, method = "lm")
+
+```
+
+## Column 2
+
+### Table of journal paper percentages, by country and year {data-height=200}
+
+```{r, country_table_year}
+table_country_year(articles.df4)
+
+```
+
+> \* Percentages are calculated after excluding missing values. The *Missing* column shows the real percentage of missing values.

@@ -52,7 +52,8 @@ table_continent_year <- function(data, datatable = TRUE) {
   if (nrow(x) != length(continent_paper_missing)) {
     warning(
       "The last couple missing values in the Missing* column may be incorrect, ",
-      "as the number of rows does not match and were forced to fit.")
+      "as the number of rows does not match and were forced to fit."
+    )
     continent_paper_missing <- continent_paper_missing[seq_len(nrow(x))]
   }
 
