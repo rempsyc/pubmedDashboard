@@ -4,12 +4,14 @@
 \alias{scatter_country_year}
 \title{Generate table of journal paper percentages, by continent and year}
 \usage{
-scatter_country_year(data, method = "lm")
+scatter_country_year(data, method = "lm", plotly = TRUE)
 }
 \arguments{
 \item{data}{The processed dataframe of data}
 
 \item{method}{Which method to use for the regression line, either "lm" (default) or "loess".}
+
+\item{plotly}{Logical, whether to use plotly for dynamic data visualization.}
 }
 \description{
 Generate table of journal paper percentages, by continent and year

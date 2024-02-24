@@ -1,6 +1,7 @@
 #' @title Generate table of journal paper percentages, by continent and year
 #' @param data The processed dataframe of data
 #' @param method Which method to use for the regression line, either "lm" (default) or "loess".
+#' @param plotly Logical, whether to use plotly for dynamic data visualization.
 #' @examples
 #' \dontshow{
 #' .old_wd <- setwd(tempdir())
@@ -26,7 +27,7 @@
 #' @importFrom rlang .data
 #' @export
 
-scatter_country_year <- function(data, method = "lm") {
+scatter_country_year <- function(data, method = "lm", plotly = TRUE) {
   df_country_year_missing <- data %>%
     dplyr::filter(is.na(.data$country)) %>%
     dplyr::group_by(.data$year) %>%
@@ -66,8 +67,13 @@ scatter_country_year <- function(data, method = "lm") {
       method = method,
       groups.order = "decreasing",
       ytitle = "% of All Papers"
-    ) %>%
-    plotly::ggplotly(tooltip = c("x", "y"))
+    )
+
+  if (isTRUE(plotly)) {
+    x <- plotly::ggplotly(tooltip = c("x", "y"))
+  }
+
+  x
 }
 
 #' @noRd

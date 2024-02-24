@@ -4,14 +4,16 @@
 \alias{scatter_figure1}
 \title{Generate table of journal paper percentages, by continent and year}
 \usage{
-scatter_figure1(data, method = "lm", original = TRUE)
+scatter_figure1(data, method = "lm", original = TRUE, plotly = TRUE)
 }
 \arguments{
 \item{data}{The processed dataframe of data}
 
 \item{method}{Which method to use for the regression line, either "lm" (default) or "loess".}
 
-\item{original}{If \code{TRUE}, attempts to mimic Arnett's (2008) Figure 1 in style.}
+\item{original}{Logical; if \code{TRUE}, attempts to mimic Arnett's (2008) Figure 1 in style.}
+
+\item{plotly}{Logical, whether to use plotly for dynamic data visualization.}
 }
 \description{
 Generate table of journal paper percentages, by continent and year
