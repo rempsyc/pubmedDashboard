@@ -4,10 +4,14 @@
 \alias{waffle_continent_journal}
 \title{Generate a waffle chart of journal paper percentages, by continent (each square = 1\% of data)}
 \usage{
-waffle_continent_journal(data)
+waffle_continent_journal(data, journal_abbreviation = TRUE)
 }
 \arguments{
 \item{data}{The processed dataframe of data}
+
+\item{journal_abbreviation}{Logical, whether to use the journal abbreviation
+to fit the entire plot, otherwise some journal names can be quite long and
+accordingly be cropped.}
 }
 \description{
 Generate a waffle chart of journal paper percentages, by continent (each square = 1\% of data)

@@ -1,5 +1,8 @@
 #' @title Generate a waffle chart of journal paper percentages, by continent (each square = 1% of data)
 #' @param data The processed dataframe of data
+#' @param journal_abbreviation Logical, whether to use the journal abbreviation
+#'  to fit the entire plot, otherwise some journal names can be quite long and
+#'  accordingly be cropped.
 #' @examples
 #' \dontshow{
 #' .old_wd <- setwd(tempdir())
@@ -25,7 +28,11 @@
 #' @importFrom rlang .data
 #' @export
 
-waffle_continent_journal <- function(data) {
+waffle_continent_journal <- function(data, journal_abbreviation = TRUE) {
+  if (isTRUE(journal_abbreviation)) {
+    data <- data %>%
+      dplyr::mutate(journal = .data$jabbrv)
+  }
   x <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
     dplyr::filter(!is.na(.data$continent)) %>%
