@@ -38,10 +38,13 @@ waffle_country_journal <- function(data, journal_abbreviation = TRUE) {
     dplyr::filter(!is.na(.data$country)) %>%
     dplyr::group_by(.data$journal, .data$country) %>%
     dplyr::add_count(name = "Papers") %>%
+    dplyr::ungroup() %>%
+    dplyr::group_by(.data$journal) %>%
+    dplyr::add_count(name = "journal_count") %>%
     dplyr::mutate(
-      percentage = .data$Papers / nrow(.),
+      percentage = .data$Papers / .data$journal_count,
       country = dplyr::case_when(
-        .data$percentage < 0.01 ~ "Other",
+        .data$percentage < 0.1 ~ "Other",
         TRUE ~ .data$country
       )
     ) %>%
