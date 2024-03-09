@@ -62,9 +62,9 @@ economics <- c(
 
 general <- c(
   "Proceedings of the national academy of sciences",
-  "Plos one",
   "Science (New York, N.Y.)",
-  "Nature"
+  "Nature",
+  "Plos one"
 )
 
 journal_field <- data.frame(
