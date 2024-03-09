@@ -70,6 +70,7 @@ scatter_country_year <- function(data, method = "lm", plotly = TRUE) {
     )
 
   if (isTRUE(plotly)) {
+    insight::check_if_installed("plotly")
     x <- plotly::ggplotly(tooltip = c("x", "y"))
   }
 

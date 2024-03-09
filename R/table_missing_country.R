@@ -36,6 +36,7 @@ table_missing_country <- function(data, datatable = TRUE) {
     dplyr::mutate(doi = paste0("<a href='", .data$doi, "' target='_blank'>", .data$doi, "</a>"))
 
   if (isTRUE(datatable)) {
+    insight::check_if_installed("DT")
     x <- DT::datatable(x,
       extensions = "Responsive",
       options = list(iDisplayLength = 5),

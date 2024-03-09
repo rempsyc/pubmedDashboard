@@ -33,6 +33,7 @@
 #' @export
 
 scatter_figure1 <- function(data, method = "lm", original = TRUE, plotly = TRUE) {
+  insight::check_if_installed("ggplot2")
   df_journal_year <- data %>%
     dplyr::filter(!is.na(.data$country)) %>%
     dplyr::group_by(.data$year, .data$journal) %>%
@@ -106,6 +107,7 @@ scatter_figure1 <- function(data, method = "lm", original = TRUE, plotly = TRUE)
 
 
     if (isTRUE(plotly)) {
+      insight::check_if_installed("plotly")
       fig1 <- plotly::ggplotly(fig1, tooltip = c("x", "y"))
     }
 

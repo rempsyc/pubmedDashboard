@@ -64,6 +64,7 @@ table_continent_journal <- function(data, datatable = TRUE) {
     dplyr::rename_with(stringr::str_to_title)
 
   if (isTRUE(datatable)) {
+    insight::check_if_installed("DT")
     x <- DT::datatable(
       x,
       options = list(iDisplayLength = 5),

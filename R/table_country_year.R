@@ -55,6 +55,7 @@ table_country_year <- function(data, datatable = TRUE) {
     dplyr::arrange(dplyr::desc(.data$year), dplyr::desc(.data$Papers))
 
   if (isTRUE(datatable)) {
+    insight::check_if_installed("DT")
     x <- DT::datatable(x,
       caption = "Journal paper percentages, by country and year"
     )

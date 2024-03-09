@@ -26,6 +26,7 @@
 #' @export
 
 waffle_continent <- function(data) {
+  insight::check_if_installed(c("waffle", "ggplot2"))
   x <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
     dplyr::filter(!is.na(.data$continent)) %>%

@@ -29,6 +29,7 @@
 #' @export
 
 waffle_continent_journal <- function(data, journal_abbreviation = TRUE) {
+  insight::check_if_installed(c("waffle", "ggplot2", "RColorBrewer"))
   if (isTRUE(journal_abbreviation)) {
     data <- data %>%
       dplyr::mutate(journal = .data$jabbrv)

@@ -28,6 +28,7 @@
 #' @export
 
 scatter_continent_year <- function(data, method = "lm", plotly = TRUE) {
+  insight::check_if_installed("RColorBrewer")
   data <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
     dplyr::filter(!is.na(.data$continent)) %>%
@@ -67,6 +68,7 @@ scatter_continent_year <- function(data, method = "lm", plotly = TRUE) {
   )
 
   if (isTRUE(plotly)) {
+    insight::check_if_installed("plotly")
     x <- plotly::ggplotly(tooltip = c("x", "y"))
   }
 

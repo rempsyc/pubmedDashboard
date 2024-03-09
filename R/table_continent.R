@@ -46,6 +46,7 @@ table_continent <- function(data, datatable = TRUE) {
     dplyr::rename_with(stringr::str_to_title) %>%
     dplyr::rename("Missing*" = "Missing")
   if (isTRUE(datatable)) {
+    insight::check_if_installed("DT")
     x <- DT::datatable(x,
       options = list(searching = FALSE, paging = FALSE),
       caption = "Journal paper percentages, by continent"

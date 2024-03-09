@@ -29,6 +29,7 @@
 #' @export
 
 waffle_country_journal <- function(data, journal_abbreviation = TRUE) {
+  insight::check_if_installed(c("waffle", "ggplot2", "RColorBrewer"))
   . <- NULL
   if (isTRUE(journal_abbreviation)) {
     data <- data %>%

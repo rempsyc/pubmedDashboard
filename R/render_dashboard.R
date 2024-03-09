@@ -67,6 +67,7 @@ render_dashboard <- function(file_name = "dashboard",
                              tab_general = FALSE,
                              tab_figure1 = FALSE,
                              tab_missing = TRUE) {
+  insight::check_if_installed(c("rstudioapi", "rmarkdown"))
   rmarkdown::render(system.file("dashboard.Rmd", package = "pubmedDashboard"),
     output_dir = getwd(),
     output_file = file_name

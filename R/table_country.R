@@ -45,6 +45,7 @@ table_country <- function(data, datatable = TRUE) {
     dplyr::rename("Country Code" = "Country_code")
 
   if (isTRUE(datatable)) {
+    insight::check_if_installed("DT")
     x <- DT::datatable(x,
       caption = "Journal paper percentages, by country"
     )

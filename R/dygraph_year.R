@@ -29,6 +29,7 @@
 #' @export
 
 dygraph_year <- function(data, level = "continent") {
+  insight::check_if_installed(c("dygraphs", "xts"))
   df_country_year <- data %>%
     dplyr::group_by(.data$year, .data[[level]]) %>%
     dplyr::filter(!is.na(.data[[level]])) %>%

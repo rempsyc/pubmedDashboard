@@ -59,6 +59,7 @@ table_country_journal <- function(data, datatable = TRUE) {
     dplyr::rename_with(stringr::str_to_title)
 
   if (isTRUE(datatable)) {
+    insight::check_if_installed("DT")
     x <- DT::datatable(x,
       caption = "Journal paper percentages, by country and journal"
     )
