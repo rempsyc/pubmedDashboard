@@ -17,8 +17,8 @@ psychology <- c(
   "Psychological science",
   "Child development",
   "Developmental science",
-  "Personality and social psychology bulletin"
-
+  "Personality and social psychology bulletin",
+  "Nature human behaviour"
 )
 
 economics <- c(
@@ -61,11 +61,10 @@ economics <- c(
 )
 
 general <- c(
-  "Nature human behaviour",
+  "Proceedings of the national academy of sciences",
   "Plos one",
   "Science (New York, N.Y.)",
-  "Nature",
-  "Proceedings of the national academy of sciences"
+  "Nature"
 )
 
 journal_field <- data.frame(
