@@ -14,25 +14,58 @@ psychology <- c(
   "The Journal of applied psychology",
   "Psychological methods",
   "Advances in methods and practices in psychological science",
-  "Psychological science"
+  "Psychological science",
+  "Child development",
+  "Developmental science",
+  "Personality and social psychology bulletin"
+
 )
 
 economics <- c(
-  "Journal Of Economic Psychology",
+  "Journal Of economic psychology",
   "Journal of experimental and behavioral economics",
   "Experimental economics",
   "Journal of development economics",
   "World development",
   "Quarterly journal of economics",
   "Econometrica : journal of the Econometric Society",
-  "Behavioral public policy"
+  "Behavioral public policy",
+  "African development review",
+  "African journal of agricultural and resource economics",
+  "African journal of economic and management studies",
+  "African journal of economic policy",
+  "American economic journal. Applied economics",
+  "American economic journal. Economic policy",
+  "American economic journal. Macroeconomics",
+  "American economic review",
+  "American economic review: Insights",
+  "Economic development and cultural change",
+  "Economic journal (London, England)",
+  "Journal of African economies",
+  "Journal of African development",
+  "Journal of human development and capabilities",
+  "Journal of development effectiveness",
+  "Journal of development studies",
+  "Journal of economic growth",
+  "Journal of labor economics",
+  "Journal of political economy",
+  "Journal of public economics",
+  "Review of African political economy",
+  "Review of development economics",
+  "Review of economic studies",
+  "Review of international political economy",
+  "South African journal of economics",
+  "World bank economic review",
+  "World bank Research observer",
+  "World development perspectives"
 )
 
 general <- c(
   "Nature human behaviour",
   "Plos one",
   "Science (New York, N.Y.)",
-  "Nature"
+  "Nature",
+  "Proceedings of the national academy of sciences"
 )
 
 journal_field <- data.frame(
