@@ -24,10 +24,10 @@
 #' setwd(.old_wd)
 #' }
 #' @importFrom rlang .data
-#' @importFrom ggplot2 layer
 #' @export
 waffle_country <- function(data) {
   insight::check_if_installed(c("ggflags", "ggplot2", "RColorBrewer"))
+  layer <- ggplot2::layer
   . <- NULL
   x <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$country)) / dplyr::n()) %>%
