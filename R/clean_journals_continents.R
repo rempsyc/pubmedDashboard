@@ -28,6 +28,7 @@ continent_order <- function(short = FALSE) {
 
 #' @noRd
 clean_journal_names <- function(journal) {
+  x <- gsub("&amp;", "&", journal, fixed = TRUE)
   x <- gsub(":.*", "", journal)
   x <- gsub("[(].*", "", x)
   x <- tools::toTitleCase(x)

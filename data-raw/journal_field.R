@@ -61,7 +61,7 @@ economics <- c(
 )
 
 general <- c(
-  "Proceedings of the national academy of sciences",
+  "Proceedings of the National Academy of Sciences of the United States of America",
   "Science (New York, N.Y.)",
   "Nature",
   "Plos one"
