@@ -64,7 +64,7 @@ general <- c(
   "Proceedings of the National Academy of Sciences of the United States of America",
   "Science (New York, N.Y.)",
   "Nature",
-  "Plos one"
+  "PloS one"
 )
 
 journal_field <- data.frame(
