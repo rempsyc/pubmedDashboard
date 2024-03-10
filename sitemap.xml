@@ -40,6 +40,9 @@
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/countries.html</loc>
   </url>
   <url>
+    <loc>https://rempsyc.github.io/pubmedDashboard/reference/detect_missing_journals.html</loc>
+  </url>
+  <url>
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/dygraph_year.html</loc>
   </url>
   <url>
@@ -98,6 +101,9 @@
   </url>
   <url>
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/table_country_year.html</loc>
+  </url>
+  <url>
+    <loc>https://rempsyc.github.io/pubmedDashboard/reference/table_journal_count.html</loc>
   </url>
   <url>
     <loc>https://rempsyc.github.io/pubmedDashboard/reference/table_missing_country.html</loc>
