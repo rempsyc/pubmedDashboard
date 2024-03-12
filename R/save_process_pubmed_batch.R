@@ -8,6 +8,7 @@
 #' @param day_low The year the data should start.
 #' @param day_high The year the data should end.
 #' @param data_folder Where to save the data.
+#' @param suffix What suffix to add to the name file.
 #' @param batch_size The download batch size.
 #' @param api_key The api key for faster processing (optional).
 #' @param verbose Whether to include progress messages.
@@ -41,6 +42,7 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
                                       day_low = "01",
                                       day_high = 31,
                                       data_folder = "data",
+                                      suffix = "",
                                       batch_size = 5000,
                                       api_key = NULL,
                                       verbose = TRUE) {
@@ -118,7 +120,7 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
   # Get full name country, continent, and region
   articles.df4 <- add_region(articles.df3)
 
-  saveRDS(articles.df4, paste0(data_folder, "/articles_", year_low, "_", year_high, ".rds"))
+  saveRDS(articles.df4, paste0(data_folder, "/articles_", year_low, "_", year_high, suffix, ".rds"))
 
   if (verbose) {
     start <- year_low
@@ -139,7 +141,7 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
 
     success_message <- c(
       "Operation successfully completed. Congratulations!", print_time(),
-      "File saved in", paste0(data_folder, "/articles_", start, "_", end, ".rds\n\n")
+      "File saved in", paste0(data_folder, "/articles_", start, "_", end, suffix, ".rds\n\n")
     )
 
     cat(success_message)

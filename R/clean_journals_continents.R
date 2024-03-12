@@ -32,7 +32,7 @@ continent_order <- function(short = FALSE) {
 #' @noRd
 clean_journal_names <- function(journal) {
   x <- gsub("&amp;", "and", journal, fixed = TRUE)
-  # x <- gsub(" of the United States of America", "", x, fixed = TRUE)
+  x <- gsub(" of the United States of America", "", x, fixed = TRUE)
   x <- gsub(":.*", "", x)
   x <- gsub("[(].*", "", x)
   x <- tools::toTitleCase(x)
@@ -55,7 +55,7 @@ detect_missing_journals <- function(data) {
 #'  instead of a regular dataframe (defaults to TRUE).
 #' @export
 table_journal_count <- function(data, datatable = TRUE) {
-  x <- dplyr::count(data, data$journal, data$field, data$year_range, sort = TRUE) %>%
+  x <- dplyr::count(data, .data$journal, .data$field, .data$year_range, sort = TRUE) %>%
     dplyr::mutate(field = stringr::str_to_title(.data$field)) %>%
     as.data.frame() %>%
     dplyr::rename("year range" = "year_range") %>%

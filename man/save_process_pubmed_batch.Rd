@@ -14,6 +14,7 @@ save_process_pubmed_batch(
   day_low = "01",
   day_high = 31,
   data_folder = "data",
+  suffix = "",
   batch_size = 5000,
   api_key = NULL,
   verbose = TRUE
@@ -37,6 +38,8 @@ save_process_pubmed_batch(
 \item{day_high}{The year the data should end.}
 
 \item{data_folder}{Where to save the data.}
+
+\item{suffix}{What suffix to add to the name file.}
 
 \item{batch_size}{The download batch size.}
 
