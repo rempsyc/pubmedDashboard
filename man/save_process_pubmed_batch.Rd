@@ -7,8 +7,8 @@
 save_process_pubmed_batch(
   pubmed_query_string = "",
   journal = NULL,
-  year_low = 2023,
-  year_high = 2023,
+  year_low = 2024,
+  year_high = 2024,
   month_low = "01",
   month_high = 12,
   day_low = "01",

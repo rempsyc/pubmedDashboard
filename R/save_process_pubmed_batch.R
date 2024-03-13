@@ -131,9 +131,9 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
     start <- year_low
     end <- year_high
 
-    if (!missing(year_low)) {
-      start <- paste0(start, "-", year_low)
-    }
+    # if (!missing(year_low)) {
+    #   start <- paste0(start, "-", year_low)
+    # }
     if (!missing(month_high)) {
       end <- paste0(end, "-", month_high)
     }
