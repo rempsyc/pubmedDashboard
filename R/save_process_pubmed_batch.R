@@ -35,8 +35,8 @@
 #' @export
 save_process_pubmed_batch <- function(pubmed_query_string = "",
                                       journal = NULL,
-                                      year_low = 2023,
-                                      year_high = 2023,
+                                      year_low = 2024,
+                                      year_high = 2024,
                                       month_low = "01",
                                       month_high = 12,
                                       day_low = "01",
@@ -120,7 +120,12 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
   # Get full name country, continent, and region
   articles.df4 <- add_region(articles.df3)
 
-  saveRDS(articles.df4, paste0(data_folder, "/articles_", year_low, "_", year_high, suffix, ".rds"))
+  if(!missing(suffix)) {
+    suffix <- paste0("_", suffix)
+  }
+
+  file_name <- paste0(data_folder, "/articles_", year_low, "_", year_high, suffix, ".rds")
+  saveRDS(articles.df4, file_name)
 
   if (verbose) {
     start <- year_low
@@ -137,10 +142,6 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
     }
     if (!missing(day_high)) {
       end <- paste0(end, "-", day_high)
-    }
-
-    if(!missing(suffix)) {
-      suffix <- paste0("_", suffix)
     }
 
     success_message <- c(
