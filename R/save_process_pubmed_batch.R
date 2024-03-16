@@ -50,7 +50,7 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
     journal <- ""
   } else {
     journal <- paste0(
-      "OR '", journal, "' [Journal]",
+      'OR "', journal, '" [Journal]',
       collapse = " "
     )
     journal <- sub("OR", "", journal)
@@ -63,8 +63,8 @@ save_process_pubmed_batch <- function(pubmed_query_string = "",
     pubmed_query_string,
     journal,
     paste0(
-      " AND ('", year_low, "/", month_low, "/", day_low, "' [Date - Publication] : '",
-      year_high, "/", month_high, "/", day_high, "' [Date - Publication])"
+      ' AND ("', year_low, "/", month_low, "/", day_low, '" [Date - Publication] : "',
+      year_high, "/", month_high, "/", day_high, '" [Date - Publication])'
     )
   )
 

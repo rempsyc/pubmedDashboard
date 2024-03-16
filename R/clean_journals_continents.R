@@ -4,14 +4,14 @@
 clean_journals_continents <- function(data) {
   data <- data %>%
     dplyr::mutate(
+      original_journal = .data$journal %in% pubmedDashboard::journal_field$journal[1:6],
+      journal = clean_journal_names(.data$journal),
       field = pubmedDashboard::journal_field$field[match(
-        .data$journal, pubmedDashboard::journal_field$journal
+        toupper(.data$journal), toupper(pubmedDashboard::journal_field$journal)
       )],
       field = ifelse(is.na(.data$field), pubmedDashboard::journal_field$field[match(
-        .data$journal, pubmedDashboard::journal_field$journal_short)], .data$field),
-      original_journal = .data$journal %in% pubmedDashboard::journal_field$journal[1:6],
-      continent = factor(.data$continent, levels = continent_order()),
-      journal = clean_journal_names(.data$journal)
+        toupper(.data$journal), toupper(pubmedDashboard::journal_field$journal_short))], .data$field),
+      continent = factor(.data$continent, levels = continent_order())
     ) %>%
     dplyr::group_by(.data$journal) %>%
     dplyr::mutate(first_Year = min(.data$year), last_year = max(.data$year),
@@ -44,9 +44,11 @@ clean_journal_names <- function(journal) {
 #' @export
 detect_missing_journals <- function(data) {
   data.frame(journal = pubmedDashboard::journal_field$journal_short) %>%
-    dplyr::mutate(found = pubmedDashboard::journal_field$journal_short %in%
-             clean_journal_names(unique(data$journal))) %>%
-    dplyr::arrange(data$found)
+    dplyr::mutate(found = toupper(pubmedDashboard::journal_field$journal_short) %in%
+                    toupper(clean_journal_names(unique(data$journal))),
+                  found = ifelse(.data$found == FALSE, toupper(pubmedDashboard::journal_field$journal_short) %in%
+                                   toupper(clean_journal_names(unique(data$journal))), .data$found)) %>%
+    dplyr::arrange(.data$found)
 }
 
 #' @title Count number of papers per journal, with year range
