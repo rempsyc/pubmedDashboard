@@ -4,7 +4,7 @@
 \alias{scatter_figure1}
 \title{Generate table of journal paper percentages, by continent and year}
 \usage{
-scatter_figure1(data, method = "lm", original = TRUE, plotly = TRUE)
+scatter_figure1(data, method = "lm", original = TRUE, plotly = TRUE, ...)
 }
 \arguments{
 \item{data}{The processed dataframe of data}
@@ -14,6 +14,8 @@ scatter_figure1(data, method = "lm", original = TRUE, plotly = TRUE)
 \item{original}{Logical; if \code{TRUE}, attempts to mimic Arnett's (2008) Figure 1 in style.}
 
 \item{plotly}{Logical, whether to use plotly for dynamic data visualization.}
+
+\item{...}{Further arguments passed to \link[rempsyc:nice_scatter]{rempsyc::nice_scatter}}
 }
 \description{
 Generate table of journal paper percentages, by continent and year

@@ -2,6 +2,7 @@
 #' @param data The processed dataframe of data
 #' @param method Which method to use for the regression line, either "lm" (default) or "loess".
 #' @param plotly Logical, whether to use plotly for dynamic data visualization.
+#' @param ... Further arguments passed to [rempsyc::nice_scatter]
 #' @examples
 #' \dontshow{
 #' .old_wd <- setwd(tempdir())
@@ -27,7 +28,7 @@
 #' @importFrom rlang .data
 #' @export
 
-scatter_continent_year <- function(data, method = "lm", plotly = TRUE) {
+scatter_continent_year <- function(data, method = "lm", plotly = TRUE, ...) {
   insight::check_if_installed("RColorBrewer")
   data <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
@@ -64,7 +65,8 @@ scatter_continent_year <- function(data, method = "lm", plotly = TRUE) {
     colours = colors,
     method = method,
     groups.order = "decreasing",
-    ytitle = "% of All Papers"
+    ytitle = "% of All Papers",
+    ...
   )
 
   if (isTRUE(plotly)) {

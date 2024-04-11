@@ -3,6 +3,7 @@
 #' @param method Which method to use for the regression line, either "lm" (default) or "loess".
 #' @param original Logical; if `TRUE`, attempts to mimic Arnett's (2008) Figure 1 in style.
 #' @param plotly Logical, whether to use plotly for dynamic data visualization.
+#' @param ... Further arguments passed to [rempsyc::nice_scatter]
 #' @examples
 #' \dontshow{
 #' .old_wd <- setwd(tempdir())
@@ -32,7 +33,7 @@
 #' @importFrom rlang .data
 #' @export
 
-scatter_figure1 <- function(data, method = "lm", original = TRUE, plotly = TRUE) {
+scatter_figure1 <- function(data, method = "lm", original = TRUE, plotly = TRUE, ...) {
   insight::check_if_installed("ggplot2")
   df_journal_year <- data %>%
     dplyr::filter(!is.na(.data$country)) %>%
@@ -94,7 +95,8 @@ scatter_figure1 <- function(data, method = "lm", original = TRUE, plotly = TRUE)
       has.line = FALSE,
       alpha = 1,
       method = method,
-      ytitle = "% American First Authors"
+      ytitle = "% American First Authors",
+      ...
     ) +
       ggplot2::geom_line() +
       ggplot2::geom_point(fill = "black", ggplot2::aes(size = .data$journal)) +
@@ -123,7 +125,8 @@ scatter_figure1 <- function(data, method = "lm", original = TRUE, plotly = TRUE)
       response = "percentage_american",
       group = "journal",
       method = "lm",
-      ytitle = "% American First Authors"
+      ytitle = "% American First Authors",
+      ...
     )
   }
 

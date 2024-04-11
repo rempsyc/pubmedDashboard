@@ -4,7 +4,7 @@
 \alias{scatter_continent_year}
 \title{Generate table of journal paper percentages, by continent and year}
 \usage{
-scatter_continent_year(data, method = "lm", plotly = TRUE)
+scatter_continent_year(data, method = "lm", plotly = TRUE, ...)
 }
 \arguments{
 \item{data}{The processed dataframe of data}
@@ -12,6 +12,8 @@ scatter_continent_year(data, method = "lm", plotly = TRUE)
 \item{method}{Which method to use for the regression line, either "lm" (default) or "loess".}
 
 \item{plotly}{Logical, whether to use plotly for dynamic data visualization.}
+
+\item{...}{Further arguments passed to \link[rempsyc:nice_scatter]{rempsyc::nice_scatter}}
 }
 \description{
 Generate table of journal paper percentages, by continent and year
