@@ -1,5 +1,6 @@
 #' @title Generate a waffle plot made of country flags
 #' @param data The processed dataframe of data
+#' @param citation Optionally, a citation to add as a footer.
 #' @examples
 #' \dontshow{
 #' .old_wd <- setwd(tempdir())
@@ -25,7 +26,7 @@
 #' }
 #' @importFrom rlang .data
 #' @export
-waffle_country <- function(data) {
+waffle_country <- function(data, citation) {
   insight::check_if_installed(c("ggflags", "ggplot2", "RColorBrewer"))
   layer <- ggplot2::layer
   . <- NULL
@@ -109,5 +110,10 @@ waffle_country_internal <- function(in_map_var, len_x = NA, na_flag = "ac") {
         ggplot2::aes(.data$x, .data$y), colour = "white", size = 10
       )
   }
+
+  if (!is.null(citation)) {
+    p <- gg_citation(p, citation)
+  }
+
   p
 }

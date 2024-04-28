@@ -4,10 +4,12 @@
 \alias{waffle_continent}
 \title{Generate a waffle chart of journal paper percentages, by continent (each square = 1\% of data)}
 \usage{
-waffle_continent(data)
+waffle_continent(data, citation = NULL)
 }
 \arguments{
 \item{data}{The processed dataframe of data}
+
+\item{citation}{Optionally, a citation to add as a footer.}
 }
 \description{
 Generate a waffle chart of journal paper percentages, by continent (each square = 1\% of data)

@@ -1,5 +1,6 @@
 #' @title Generate a waffle chart of journal paper percentages, by continent (each square = 1% of data)
 #' @param data The processed dataframe of data
+#' @param citation Optionally, a citation to add as a footer.
 #' @param journal_abbreviation Logical, whether to use the journal abbreviation
 #'  to fit the entire plot, otherwise some journal names can be quite long and
 #'  accordingly be cropped.
@@ -28,7 +29,7 @@
 #' @importFrom rlang .data
 #' @export
 
-waffle_continent_journal <- function(data, journal_abbreviation = TRUE) {
+waffle_continent_journal <- function(data, citation, journal_abbreviation = TRUE) {
   insight::check_if_installed(c("waffle", "ggplot2", "RColorBrewer"))
   if (isTRUE(journal_abbreviation)) {
     data <- data %>%
@@ -55,7 +56,7 @@ waffle_continent_journal <- function(data, journal_abbreviation = TRUE) {
     length(unique(x$continent)), "Set2"
   ))
 
-  x %>%
+  p <- x %>%
     ggplot2::ggplot(ggplot2::aes(fill = .data$continent, values = .data$number)) +
     waffle::geom_waffle(color = "white", size = 0.8, na.rm = TRUE) +
     ggplot2::facet_wrap(~journal) +
@@ -70,4 +71,10 @@ waffle_continent_journal <- function(data, journal_abbreviation = TRUE) {
       legend.text = ggplot2::element_text(size = 5)
     ) +
     ggplot2::scale_fill_manual(values = colors)
+
+  if (!is.null(citation)) {
+    p <- gg_citation(p, citation)
+  }
+
+  p
 }

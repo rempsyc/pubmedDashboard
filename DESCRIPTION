@@ -27,6 +27,7 @@ Suggests:
     waffle (>= 1.0.1),
     ggflags (>= 0.0.3),
     plotly,
+    ggtext,
     dygraphs,
     xts,
     rstudioapi,

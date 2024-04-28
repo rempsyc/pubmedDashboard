@@ -4,10 +4,12 @@
 \alias{waffle_country}
 \title{Generate a waffle plot made of country flags}
 \usage{
-waffle_country(data)
+waffle_country(data, citation)
 }
 \arguments{
 \item{data}{The processed dataframe of data}
+
+\item{citation}{Optionally, a citation to add as a footer.}
 }
 \description{
 Generate a waffle plot made of country flags
