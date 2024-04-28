@@ -1,6 +1,7 @@
 #' @title Generate a waffle plot made of country flags
 #' @param data The processed dataframe of data
 #' @param citation Optionally, a citation to add as a footer.
+#' @param citation_size Font size of the citation.
 #' @examples
 #' \dontshow{
 #' .old_wd <- setwd(tempdir())
@@ -26,7 +27,7 @@
 #' }
 #' @importFrom rlang .data
 #' @export
-waffle_country <- function(data, citation) {
+waffle_country <- function(data, citation, citation_size = NULL) {
   insight::check_if_installed(c("ggflags", "ggplot2", "RColorBrewer"))
   layer <- ggplot2::layer
   . <- NULL
@@ -65,7 +66,13 @@ waffle_country <- function(data, citation) {
     rep(my_prop$Country[x], my_prop$Percentage[x])
   }) %>%
     unlist()
-  waffle_country_internal(in_map_var)
+  p <- waffle_country_internal(in_map_var)
+
+  if (!is.null(citation)) {
+    p <- gg_citation(p, citation, citation_size = citation_size)
+  }
+
+  p
 }
 
 #' @noRd
@@ -110,10 +117,5 @@ waffle_country_internal <- function(in_map_var, len_x = NA, na_flag = "ac") {
         ggplot2::aes(.data$x, .data$y), colour = "white", size = 10
       )
   }
-
-  if (!is.null(citation)) {
-    p <- gg_citation(p, citation)
-  }
-
   p
 }

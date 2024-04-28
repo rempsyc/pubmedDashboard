@@ -1,6 +1,7 @@
 #' @title Generate a waffle chart of journal paper percentages, by continent (each square = 1% of data)
 #' @param data The processed dataframe of data
 #' @param citation Optionally, a citation to add as a footer.
+#' @param citation_size Font size of the citation.
 #' @examples
 #' \dontshow{
 #' .old_wd <- setwd(tempdir())
@@ -26,7 +27,7 @@
 #' @importFrom rlang .data
 #' @export
 
-waffle_continent <- function(data, citation = NULL) {
+waffle_continent <- function(data, citation = NULL, citation_size = NULL) {
   insight::check_if_installed(c("waffle", "ggplot2"))
   x <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
@@ -52,13 +53,21 @@ waffle_continent <- function(data, citation = NULL) {
     ggplot2::theme(legend.text = ggplot2::element_text(size = 15))
 
   if (!is.null(citation)) {
-    p <- gg_citation(p, citation)
+    p <- gg_citation(p, citation, citation_size = citation_size)
   }
 
   p
 }
 
-gg_citation <- function(x, citation) {
+gg_citation <- function(x, citation, citation_size) {
+  insight::check_if_installed("ggtext")
+  x +
+    ggplot2::xlab(citation) +
+    ggplot2::theme(axis.title.x = ggtext::element_markdown(
+      hjust = 1, size = citation_size))
+}
+
+plotly_citation <- function(x, citation) {
   insight::check_if_installed("ggtext")
   x +
     ggplot2::xlab(citation) +
