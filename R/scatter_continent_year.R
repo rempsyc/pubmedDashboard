@@ -90,7 +90,7 @@ plotly_citation <- function(x, citation, citation_size) {
     annotations = list(
       # x = 2020,
       y = 100,
-      text = citation2,
+      text = citation,
       showarrow = F,
       # xref = 'container',
       yref = 'container',
