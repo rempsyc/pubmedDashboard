@@ -80,7 +80,7 @@ scatter_country_year <- function(data,
 
   if (isTRUE(plotly)) {
     insight::check_if_installed("plotly")
-    x <- plotly::ggplotly(tooltip = c("x", "y"))
+    p <- plotly::ggplotly(tooltip = c("x", "y"))
     if (!is.null(citation)) {
       p <- plotly_citation(p, citation, citation_size = citation_size)
     }
