@@ -4,7 +4,14 @@
 \alias{scatter_country_year}
 \title{Generate table of journal paper percentages, by continent and year}
 \usage{
-scatter_country_year(data, method = "lm", plotly = TRUE, ...)
+scatter_country_year(
+  data,
+  method = "lm",
+  plotly = TRUE,
+  citation,
+  citation_size = 15,
+  ...
+)
 }
 \arguments{
 \item{data}{The processed dataframe of data}
@@ -12,6 +19,10 @@ scatter_country_year(data, method = "lm", plotly = TRUE, ...)
 \item{method}{Which method to use for the regression line, either "lm" (default) or "loess".}
 
 \item{plotly}{Logical, whether to use plotly for dynamic data visualization.}
+
+\item{citation}{Optionally, a citation to add as a footer.}
+
+\item{citation_size}{Font size of the citation.}
 
 \item{...}{Further arguments passed to \link[rempsyc:nice_scatter]{rempsyc::nice_scatter}}
 }

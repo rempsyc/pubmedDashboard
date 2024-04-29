@@ -2,6 +2,8 @@
 #' @param data The processed dataframe of data
 #' @param method Which method to use for the regression line, either "lm" (default) or "loess".
 #' @param plotly Logical, whether to use plotly for dynamic data visualization.
+#' @param citation Optionally, a citation to add as a footer.
+#' @param citation_size Font size of the citation.
 #' @param ... Further arguments passed to [rempsyc::nice_scatter]
 #' @examples
 #' \dontshow{
@@ -28,7 +30,7 @@
 #' @importFrom rlang .data
 #' @export
 
-scatter_country_year <- function(data, method = "lm", plotly = TRUE, ...) {
+scatter_country_year <- function(data, method = "lm", plotly = TRUE, citation, citation_size = 15, ...) {
   df_country_year_missing <- data %>%
     dplyr::filter(is.na(.data$country)) %>%
     dplyr::group_by(.data$year) %>%
@@ -55,7 +57,7 @@ scatter_country_year <- function(data, method = "lm", plotly = TRUE, ...) {
   getPalette <- grDevices::colorRampPalette(RColorBrewer::brewer.pal(8, "Set2"))
   colours.country2 <- getPalette(length(unique(df_country_year$country)))
 
-  df_country_year %>%
+  p <- df_country_year %>%
     dplyr::mutate(
       year = as.numeric(.data$year),
       country = as.factor(.data$country)
@@ -74,9 +76,14 @@ scatter_country_year <- function(data, method = "lm", plotly = TRUE, ...) {
   if (isTRUE(plotly)) {
     insight::check_if_installed("plotly")
     x <- plotly::ggplotly(tooltip = c("x", "y"))
+    if (!is.null(citation)) {
+      p <- plotly_citation(p, citation, citation_size = citation_size)
+    }
+  } else if (!is.null(citation)) {
+    p <- gg_citation(p, citation, citation_size = citation_size)
   }
 
-  x
+  p
 }
 
 #' @noRd

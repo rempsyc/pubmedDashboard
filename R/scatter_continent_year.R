@@ -2,6 +2,8 @@
 #' @param data The processed dataframe of data
 #' @param method Which method to use for the regression line, either "lm" (default) or "loess".
 #' @param plotly Logical, whether to use plotly for dynamic data visualization.
+#' @param citation Optionally, a citation to add as a footer.
+#' @param citation_size Font size of the citation.
 #' @param ... Further arguments passed to [rempsyc::nice_scatter]
 #' @examples
 #' \dontshow{
@@ -28,7 +30,7 @@
 #' @importFrom rlang .data
 #' @export
 
-scatter_continent_year <- function(data, method = "lm", plotly = TRUE, ...) {
+scatter_continent_year <- function(data, method = "lm", plotly = TRUE, citation, citation_size = 15, ...) {
   insight::check_if_installed("RColorBrewer")
   data <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
@@ -57,7 +59,7 @@ scatter_continent_year <- function(data, method = "lm", plotly = TRUE, ...) {
     length(unique(data$continent)), "Set2"
   ))
 
-  x <- rempsyc::nice_scatter(
+  p <- rempsyc::nice_scatter(
     data,
     predictor = "year",
     response = "papers_percentage",
@@ -71,8 +73,32 @@ scatter_continent_year <- function(data, method = "lm", plotly = TRUE, ...) {
 
   if (isTRUE(plotly)) {
     insight::check_if_installed("plotly")
-    x <- plotly::ggplotly(tooltip = c("x", "y"))
+    p <- plotly::ggplotly(tooltip = c("x", "y"))
+    if (!is.null(citation)) {
+      p <- plotly_citation(p, citation, citation_size = citation_size)
+    }
+  } else if (!is.null(citation)) {
+    p <- gg_citation(p, citation, citation_size = citation_size)
   }
 
-  x
+  p
+}
+
+plotly_citation <- function(x, citation, citation_size) {
+  plotly::layout(
+    x,
+    annotations = list(
+      # x = 2020,
+      y = 100,
+      text = citation2,
+      showarrow = F,
+      # xref = 'container',
+      yref = 'container',
+      xanchor = 'left',
+      yanchor = 'top',
+      # yshift = -1,
+      # automargin = TRUE,
+      # margin = list(b=90),
+      font = list(size = citation_size))
+  )
 }

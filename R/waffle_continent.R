@@ -66,10 +66,3 @@ gg_citation <- function(x, citation, citation_size) {
     ggplot2::theme(axis.title.x = ggtext::element_markdown(
       hjust = 1, size = citation_size))
 }
-
-plotly_citation <- function(x, citation) {
-  insight::check_if_installed("ggtext")
-  x +
-    ggplot2::xlab(citation) +
-    ggplot2::theme(axis.title.x = ggtext::element_markdown(hjust = 1))
-}
