@@ -30,7 +30,12 @@
 #' @importFrom rlang .data
 #' @export
 
-scatter_country_year <- function(data, method = "lm", plotly = TRUE, citation, citation_size = 15, ...) {
+scatter_country_year <- function(data,
+                                 method = "lm",
+                                 plotly = TRUE,
+                                 citation = NULL,
+                                 citation_size = 15,
+                                 ...) {
   df_country_year_missing <- data %>%
     dplyr::filter(is.na(.data$country)) %>%
     dplyr::group_by(.data$year) %>%

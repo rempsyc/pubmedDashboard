@@ -8,7 +8,7 @@ scatter_country_year(
   data,
   method = "lm",
   plotly = TRUE,
-  citation,
+  citation = NULL,
   citation_size = 15,
   ...
 )

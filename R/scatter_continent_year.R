@@ -30,7 +30,12 @@
 #' @importFrom rlang .data
 #' @export
 
-scatter_continent_year <- function(data, method = "lm", plotly = TRUE, citation, citation_size = 15, ...) {
+scatter_continent_year <- function(data,
+                                   method = "lm",
+                                   plotly = TRUE,
+                                   citation = NULL,
+                                   citation_size = 15,
+                                   ...) {
   insight::check_if_installed("RColorBrewer")
   data <- data %>%
     dplyr::mutate(missing = sum(is.na(.data$continent)) / dplyr::n()) %>%
