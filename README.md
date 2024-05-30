@@ -17,6 +17,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![stars](https://img.shields.io/github/stars/rempsyc/pubmedDashboard?style=social)](https://github.com/rempsyc/pubmedDashboard/stargazers)
 <!-- badges: end -->
 
+**This package is now deprecated in favour of the [`pubDashboard`](https://rempsyc.github.io/pubDashboard/) package.**
+
 The goal of `pubmedDashboard` is to facilitate the creation of pretty
 data visualization dashboards using the `flexdashboard` and `easyPubMed`
 packages.

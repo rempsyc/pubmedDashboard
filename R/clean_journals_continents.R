@@ -31,7 +31,7 @@ continent_order <- function(short = FALSE) {
 
 #' @noRd
 clean_journal_names <- function(journal) {
-  x <- gsub("&amp;", "and", journal, fixed = TRUE)
+  x <- gsub("&amp;", "&", journal, fixed = TRUE)
   x <- gsub(" of the United States of America", "", x, fixed = TRUE)
   x <- gsub(":.*", "", x)
   x <- gsub("[(].*", "", x)

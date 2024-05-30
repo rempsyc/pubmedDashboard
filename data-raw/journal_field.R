@@ -17,7 +17,7 @@ psychology <- c(
   "Psychological science",
   "Child development",
   "Developmental science",
-  "Personality and social psychology bulletin",
+  "Personality & social psychology bulletin",
   "Nature human behaviour"
 )
 
@@ -72,10 +72,6 @@ journal_field <- data.frame(
 )
 
 journal_field$journal_short <- clean_journal_names(journal_field$journal)
-# journal_field$journal_short <- gsub(":.*", "", journal_field$journal)
-# journal_field$journal_short <- gsub("[(].*", "", journal_field$journal_short)
-# journal_field$journal_short <- tools::toTitleCase(journal_field$journal_short)
-# journal_field$journal_short <- trimws(journal_field$journal_short)
 
 journal_field$field <- ifelse(
   journal_field$journal %in% psychology, "psychology", ifelse(
